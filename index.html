@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiyadhRe Brand Identity | Deliverables</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-main: #29366c;
+            --gold: #fcbf2c;
+            --black: #0C0E1D;
+            --pink: #ea4b6e;
+            --teal: #88c9c4;
+            --white: #ffffff;
+            --gray-light: #f0f2f9;
+            --blue-mid: #2f3e75;
+            --blue-light: #5f73bf;
+            --blue-pale: #c5cce8;
+            --yellow-pale: #fff9eb;
+            --yellow-light: #fdda86;
+            --yellow-mid: #fcba22;
+            --teal-light: #abd9d5;
+            --pink-light: #f291a6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════
+           NAVIGATION
+        ═══════════════════════════════ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(12, 14, 29, 0.95);
+            box-shadow: 0 1px 0 rgba(95, 115, 191, 0.15);
+        }
+
+        .nav-logo {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--blue-pale);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ═══════════════════════════════
+           HERO
+        ═══════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 48px 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 20% 50%, rgba(41, 54, 108, 0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 350px at 80% 40%, rgba(252, 191, 44, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 24px;
+            border: 1px solid var(--blue-mid);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--blue-pale);
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 1;
+            animation: fadeDown 0.8s ease both;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 7vw, 96px);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 0.8s ease 0.15s both;
+        }
+
+        .hero-title .accent {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--blue-pale);
+            margin-top: 28px;
+            max-width: 580px;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 0.8s ease 0.3s both;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 0.8s ease 0.45s both;
+        }
+
+        .hero-meta-item {
+            text-align: center;
+        }
+
+        .hero-meta-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .hero-meta-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            margin-top: 4px;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: fadeUp 0.8s ease 0.6s both;
+        }
+
+        .scroll-hint span {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--blue-light);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: var(--blue-mid);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: var(--gold);
+            animation: scrollDown 2s ease infinite;
+        }
+
+        /* ═══════════════════════════════
+           SECTIONS COMMON
+        ═══════════════════════════════ */
+        .section {
+            padding: 72px 48px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-number {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 52px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.15;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--blue-pale);
+            margin-top: 16px;
+            max-width: 600px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--blue-mid);
+            opacity: 0.3;
+        }
+
+        /* ═══════════════════════════════
+           DESIGN DELIVERABLES
+        ═══════════════════════════════ */
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .design-card {
+            border: 1px solid rgba(47, 62, 117, 0.4);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color 0.4s ease, transform 0.3s ease;
+            background: rgba(47, 62, 117, 0.08);
+        }
+
+        .design-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .design-card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: var(--blue-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .design-card:hover .design-card-image img {
+            transform: scale(1.03);
+        }
+
+        .design-card-image .placeholder {
+            font-size: 13px;
+            color: var(--blue-pale);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        .design-card-body {
+            padding: 28px 32px;
+        }
+
+        .design-card-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--gold);
+            color: var(--black);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 100px;
+            margin-bottom: 14px;
+        }
+
+        .design-card-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .design-card-desc {
+            font-size: 14px;
+            color: var(--blue-pale);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .design-card-formats {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .format-badge {
+            padding: 4px 12px;
+            border: 1px solid var(--blue-mid);
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--blue-light);
+        }
+
+        /* Uniform cards — no featured override */
+
+        /* Multi-image card (e.g., business cards front/back) */
+        .design-card-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+
+        .design-card-images .design-card-image {
+            aspect-ratio: 4 / 3;
+        }
+
+        /* Envelope card with two sizes */
+        .design-card-images.triple .design-card-image {
+            aspect-ratio: 4 / 3;
+        }
+
+        /* ═══════════════════════════════
+           CONTENT DELIVERABLES
+        ═══════════════════════════════ */
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .content-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 28px 32px;
+            border-radius: 12px;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            color: var(--white);
+            cursor: pointer;
+            gap: 24px;
+        }
+
+        .content-item:hover {
+            background: rgba(47, 62, 117, 0.15);
+        }
+
+        .content-item-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .content-item-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        .content-item-icon.doc { background: rgba(95, 115, 191, 0.15); border: 1px solid rgba(95, 115, 191, 0.25); }
+        .content-item-icon.social { background: rgba(234, 75, 110, 0.1); border: 1px solid rgba(234, 75, 110, 0.2); }
+        .content-item-icon.ppt { background: rgba(252, 191, 44, 0.1); border: 1px solid rgba(252, 191, 44, 0.2); }
+        .content-item-icon.banner { background: rgba(136, 201, 196, 0.1); border: 1px solid rgba(136, 201, 196, 0.2); }
+        .content-item-icon.gift { background: rgba(252, 186, 34, 0.1); border: 1px solid rgba(252, 186, 34, 0.2); }
+
+        .content-item-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .content-item-info p {
+            font-size: 13px;
+            color: var(--blue-pale);
+            font-weight: 300;
+        }
+
+        .content-item-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--blue-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .content-item:hover .content-item-arrow {
+            border-color: var(--gold);
+            background: rgba(252, 191, 44, 0.1);
+        }
+
+        .content-item-arrow svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--blue-pale);
+            transition: stroke 0.3s ease, transform 0.3s ease;
+        }
+
+        .content-item:hover .content-item-arrow svg {
+            stroke: var(--gold);
+            transform: translateX(2px);
+        }
+
+        /* ═══════════════════════════════
+           IN PROGRESS SECTION
+        ═══════════════════════════════ */
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .progress-card {
+            padding: 28px;
+            border: 1px solid rgba(47, 62, 117, 0.3);
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--blue-mid);
+        }
+
+        .progress-card-icon {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .progress-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .progress-card p {
+            font-size: 12px;
+            color: var(--blue-pale);
+            font-weight: 300;
+        }
+
+        .progress-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--yellow-mid);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .progress-status .pulse {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--yellow-mid);
+            animation: pulse 2s ease infinite;
+        }
+
+        /* ═══════════════════════════════
+           FOOTER
+        ═══════════════════════════════ */
+        .footer {
+            padding: 48px;
+            text-align: center;
+            border-top: 1px solid rgba(47, 62, 117, 0.2);
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--blue-light);
+            font-weight: 300;
+        }
+
+        /* ═══════════════════════════════
+           LIGHTBOX
+        ═══════════════════════════════ */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(12, 14, 29, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--blue-mid);
+            border-radius: 50%;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            border-color: var(--gold);
+        }
+
+        .lightbox-close svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--white);
+        }
+
+        /* ═══════════════════════════════
+           ANIMATIONS
+        ═══════════════════════════════ */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scrollDown {
+            0% { top: -100%; }
+            100% { top: 200%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════ */
+        @media (max-width: 900px) {
+            .nav { padding: 16px 24px; }
+            .nav-links { display: none; }
+            .section { padding: 48px 24px; }
+            .design-grid { grid-template-columns: repeat(2, 1fr); }
+            .content-item { padding: 20px 16px; }
+            .design-card-body { padding: 20px 24px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-meta { flex-direction: column; gap: 24px; }
+            .design-grid { grid-template-columns: 1fr; }
+            .design-card-images { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════ NAVIGATION ═══════════ -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo"><img src="TMD%20Logo%20White.svg" alt="TMD" style="height: 28px; display: block;"></div>
+        <ul class="nav-links">
+            <li><a href="#designs">Designs</a></li>
+            <li><a href="#content">Content</a></li>
+            <li><a href="#progress">In Progress</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══════════ DESIGN DELIVERABLES ═══════════ -->
+    <section class="section" id="designs" style="padding-top: 100px;">
+        <div class="section-header reveal">
+            <div class="section-number">01 / Design Deliverables</div>
+            <h2 class="section-title">Brand Applications</h2>
+            <p class="section-desc">Finalized design layouts ready for your review. Click any image to view it in full size.</p>
+        </div>
+
+        <div class="design-grid">
+
+            <!-- ══ LETTERHEAD ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-image" onclick="openLightbox(this)">
+                    <img src="Letterhead/Mockup.png" alt="Letterhead Design" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Letterhead Preview</span>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Letterhead</h3>
+                    <p class="design-card-desc">Digital template available in both editable Word and PDF formats, ready for official correspondence.</p>
+                </div>
+            </div>
+
+            <!-- ══ BUSINESS CARDS ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-image" onclick="openLightbox(this)">
+                    <img src="Business%20Card/Mockup.png" alt="Business Card" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Business Card Preview</span>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Business Cards</h3>
+                    <p class="design-card-desc">Bilingual Arabic/English layout, front and back, following brand guidelines.</p>
+                </div>
+            </div>
+
+            <!-- ══ ENVELOPES ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-image" onclick="openLightbox(this)">
+                    <img src="Envelope/Envelope-Mockup.png" alt="Envelope" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Envelope Preview</span>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Envelopes</h3>
+                    <p class="design-card-desc">Layout designs for both C4 and DL sizes, complete and print-ready.</p>
+                </div>
+            </div>
+
+            <!-- ══ EMAIL SIGNATURE ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-image" onclick="openLightbox(this)">
+                    <img src="Email%20Signature/Layout.png" alt="Email Signature Layout" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Email Signature Preview</span>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Email Signature</h3>
+                    <p class="design-card-desc">Professional bilingual email signature layout, ready for implementation across all official staff email accounts.</p>
+                </div>
+            </div>
+
+            <!-- ══ ROLL-UP BANNERS ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-image" onclick="openLightbox(this)">
+                    <img src="Rollup/Mockup.jpeg" alt="Roll-up Banner" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Roll-up Banner Preview</span>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Roll-up Banners</h3>
+                    <p class="design-card-desc">Layout design (85 × 200 cm) complete and ready for final export.</p>
+                </div>
+            </div>
+
+            <!-- ══ PRESENTATION FOLDERS ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-images" style="grid-template-columns: 1fr;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Presentation%20Folder/01.png" alt="Folder Exterior" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Exterior</span>
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Presentation%20Folder/02.png" alt="Folder Interior" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Interior</span>
+                    </div>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Presentation Folders</h3>
+                    <p class="design-card-desc">Exterior (front and back cover) and interior pocket layout, designed and complete.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════ CONTENT DELIVERABLES ═══════════ -->
+
+    <section class="section" id="content">
+        <div class="section-header reveal">
+            <div class="section-number">02 / Content Deliverables</div>
+            <h2 class="section-title">Content & Copy</h2>
+            <p class="section-desc">All written content, outlines, and copy materials. Click any item to view the full document.</p>
+        </div>
+
+        <div class="content-list">
+
+            <a class="content-item reveal" href="https://docs.google.com/document/d/1I3aupPLq1NBGp1TpAmCma7DRHIMxxacgNzlqi3RXWWY/edit?usp=sharing" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon doc">📋</div>
+                    <div class="content-item-info">
+                        <h3>Business Cards Content</h3>
+                        <p>All bilingual text content for employee business cards: names, job titles, phone numbers, and addresses in Arabic and English</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
+            </a>
+
+            <a class="content-item reveal" href="https://docs.google.com/document/d/1rfLxZoGqDcR2tsS7t7HVaWrdnOZlUmwWkBw5I87ifhM/edit?usp=sharing" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon doc">📄</div>
+                    <div class="content-item-info">
+                        <h3>Company Profile Outline</h3>
+                        <p>Detailed 20-page company profile outline with page-by-page breakdown of all sections</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
+            </a>
+
+            <a class="content-item reveal" href="https://docs.google.com/document/d/1ry2GGtkWQmL4yoUt4_-GoEQq_eejpSuWkWlFokpbick/edit?usp=sharing" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon social">📱</div>
+                    <div class="content-item-info">
+                        <h3>Social Media Template Types & Sizes</h3>
+                        <p>5 template types (announcement, quote, stat, event, carousel) with platform dimensions, content guidelines, and hashtag bank</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
+            </a>
+
+            <a class="content-item reveal" href="https://docs.google.com/document/d/1bWPo7v1fRawKJTaO5mD07LQunlSo4FRicvgCv27tcz4/edit?usp=sharing" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon social">✍️</div>
+                    <div class="content-item-info">
+                        <h3>Sample Captions & Copy</h3>
+                        <p>20 sample captions (10 Arabic + 10 English) per template type, formal B2B tone for the insurance sector</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
+            </a>
+
+            <a class="content-item reveal" href="https://docs.google.com/document/d/1Ys-hZBynWk_nksfVXOnLapk7jftp-EfRQ0TTKXGyziI/edit?usp=sharing" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon ppt">📊</div>
+                    <div class="content-item-info">
+                        <h3>PowerPoint Placeholder Content</h3>
+                        <p>Placeholder content for 10 slide types: title text, bullet points, chart data, and closing copy</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
+            </a>
+
+            <a class="content-item reveal" href="https://docs.google.com/document/d/1iiaP58OEk6GkL6ibi-8zjIevzak_2YqUHooi_KjD1Og/edit?usp=sharing" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon banner">🎯</div>
+                    <div class="content-item-info">
+                        <h3>Roll-up Banner Copy & Key Messages</h3>
+                        <p>Headlines, taglines, and key messages for roll-up banners (85×200 cm), corporate general and conferences versions, bilingual</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
+            </a>
+
+            <a class="content-item reveal" href="https://docs.google.com/document/d/1VpnKg2_oGYCh2Rm8cKwGM6lLaPbIRgfc2dCnkmKWQTM/edit?usp=sharing" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon gift">🎁</div>
+                    <div class="content-item-info">
+                        <h3>Branded Gift Items</h3>
+                        <p>Recommendation of 3 branded gift items suitable for Riyadh Re with justification for each selection</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ═══════════ IN PROGRESS ═══════════ -->
+
+    <section class="section" id="progress">
+        <div class="section-header reveal">
+            <div class="section-number">03 / In Progress</div>
+            <h2 class="section-title">In Progress</h2>
+            <p class="section-desc">We are actively working on these remaining deliverables. Updates will follow as each item is completed.</p>
+        </div>
+
+        <div class="progress-grid">
+            <div class="progress-card reveal">
+                <div class="progress-card-icon">📖</div>
+                <h3>Company Profile</h3>
+                <p>Full copy and design layout</p>
+                <div class="progress-status"><span class="pulse"></span> In Progress</div>
+            </div>
+            <div class="progress-card reveal">
+                <div class="progress-card-icon">📱</div>
+                <h3>Social Media Templates</h3>
+                <p>Design templates for all platforms</p>
+                <div class="progress-status"><span class="pulse"></span> In Progress</div>
+            </div>
+            <div class="progress-card reveal">
+                <div class="progress-card-icon">📊</div>
+                <h3>PowerPoint Template</h3>
+                <p>Master presentation build</p>
+                <div class="progress-status"><span class="pulse"></span> In Progress</div>
+            </div>
+            <div class="progress-card reveal">
+                <div class="progress-card-icon">✉️</div>
+                <h3>Email Signature Kit</h3>
+                <p>HTML email signatures</p>
+                <div class="progress-status"><span class="pulse"></span> In Progress</div>
+            </div>
+            <div class="progress-card reveal">
+                <div class="progress-card-icon">🎁</div>
+                <h3>Gift Application Designs</h3>
+                <p>Branded gift item mockups</p>
+                <div class="progress-status"><span class="pulse"></span> In Progress</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ LIGHTBOX ═══════════ -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="Preview">
+    </div>
+
+    <script>
+        // ── NAV SCROLL ──
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // ── SCROLL REVEAL ──
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // ── LIGHTBOX ──
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            if (img && img.style.display !== 'none' && img.src && !img.src.includes('IMAGE_URL_')) {
+                document.getElementById('lightbox-img').src = img.src;
+                document.getElementById('lightbox').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
