@@ -702,9 +702,15 @@
 
             <!-- ══ LETTERHEAD ══ -->
             <div class="design-card reveal">
-                <div class="design-card-image" onclick="openLightbox(this)">
-                    <img src="Letterhead/Mockup.png" alt="Letterhead Design" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Letterhead Preview</span>
+                <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Letterhead/Mockup.png" alt="Letterhead Mockup" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Mockup</span>
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Letterhead/Word.png" alt="Letterhead Word Template" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Word Template</span>
+                    </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Letterhead</h3>
@@ -714,9 +720,19 @@
 
             <!-- ══ BUSINESS CARDS ══ -->
             <div class="design-card reveal">
-                <div class="design-card-image" onclick="openLightbox(this)">
-                    <img src="Business%20Card/Mockup.png" alt="Business Card" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Business Card Preview</span>
+                <div class="design-card-images" style="grid-template-columns: 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Business%20Card/Mockup.png" alt="Business Card Mockup" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Mockup</span>
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Business%20Card/Face.png" alt="Business Card Front" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Front</span>
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Business%20Card/Back.png" alt="Business Card Back" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Back</span>
+                    </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Business Cards</h3>
@@ -762,7 +778,11 @@
 
             <!-- ══ PRESENTATION FOLDERS ══ -->
             <div class="design-card reveal">
-                <div class="design-card-images" style="grid-template-columns: 1fr;">
+                <div class="design-card-images" style="grid-template-columns: 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Presentation%20Folder/Mockup.jpeg" alt="Presentation Folder Mockup" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Mockup</span>
+                    </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Presentation%20Folder/01.png" alt="Folder Exterior" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
                         <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Exterior</span>
@@ -793,6 +813,14 @@
                         <img src="Social%20Media%20Brand%20Kit/Artboard%203.png" alt="Social Media Template 3" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
                         <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 3</span>
                     </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Social%20Media%20Brand%20Kit/Artboard%204.png" alt="Social Media Template 4" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 4</span>
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Social%20Media%20Brand%20Kit/Artboard%205.png" alt="Social Media Template 5" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 5</span>
+                    </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Social Media Brand Kit</h3>
@@ -814,6 +842,14 @@
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Gifts/Gift%20(3).png" alt="Gift Application 3" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
                         <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 3</span>
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Gifts/Gift%20(4).png" alt="Gift Application 4" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 4</span>
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Gifts/Gift%20(5).png" alt="Gift Application 5" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
+                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 5</span>
                     </div>
                 </div>
                 <div class="design-card-body">
