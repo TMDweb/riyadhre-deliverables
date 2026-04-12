@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Signature Preview</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform-origin: top left;
+  }
+</style>
+</head>
+<body>
+<iframe id="f" src="RiyadhRe-Email-Signature.html"></iframe>
+<script>
+  const f = document.getElementById('f');
+  f.addEventListener('load', () => {
+    try {
+      const doc = f.contentDocument;
+
+      // Override body to 3x2 grid
+      const style = doc.createElement('style');
+      style.textContent = `
+        body {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          flex-direction: unset !important;
+          align-items: start !important;
+          gap: 20px 24px !important;
+          padding: 24px 20px !important;
+          overflow: hidden !important;
+          height: 100vh !important;
+          box-sizing: border-box !important;
+        }
+        .label {
+          grid-column: unset;
+          margin-bottom: 0 !important;
+          font-size: 9px !important;
+          letter-spacing: 2px !important;
+        }
+        /* Group each label+card pair */
+        .label + * {
+          margin-top: -12px;
+        }
+        /* Scale down cards to fit */
+        .a, .b, .c, .d, .e, .f {
+          transform-origin: top center;
+          max-width: 100% !important;
+          width: 100% !important;
+        }
+        /* Infinite animation loop via replay class */
+        .replay * {
+          animation-iteration-count: infinite !important;
+        }
+      `;
+      doc.head.appendChild(style);
+
+      // Wrap each label+card in a container for clean grid cells
+      const body = doc.body;
+      const children = Array.from(body.children);
+      body.innerHTML = '';
+      for (let i = 0; i < children.length; i += 2) {
+        const cell = doc.createElement('div');
+        cell.style.cssText = 'display:flex; flex-direction:column; align-items:center; gap:8px;';
+        if (children[i]) cell.appendChild(children[i]);
+        if (children[i+1]) cell.appendChild(children[i+1]);
+        body.appendChild(cell);
+      }
+
+      // Replay animations every 6 seconds
+      function replayAnimations() {
+        const allAnimated = doc.querySelectorAll('[style*="animation"], .a, .b, .c, .d, .e, .f');
+        doc.body.querySelectorAll('*').forEach(el => {
+          const cs = f.contentWindow.getComputedStyle(el);
+          if (cs.animationName && cs.animationName !== 'none') {
+            el.style.animation = 'none';
+          }
+        });
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            doc.body.querySelectorAll('*').forEach(el => {
+              el.style.animation = '';
+            });
+          });
+        });
+      }
+
+      setInterval(replayAnimations, 7000);
+
+    } catch(e) { console.error(e); }
+  });
+</script>
+</body>
+</html>
