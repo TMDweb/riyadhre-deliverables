@@ -21,8 +21,9 @@
   f.addEventListener('load', () => {
     try {
       const doc = f.contentDocument;
+      const win = f.contentWindow;
 
-      // Override body to 3x2 grid
+      // Override body to 3x2 grid with scaling
       const style = doc.createElement('style');
       style.textContent = `
         body {
@@ -30,31 +31,38 @@
           grid-template-columns: repeat(3, 1fr) !important;
           flex-direction: unset !important;
           align-items: start !important;
-          gap: 20px 24px !important;
-          padding: 24px 20px !important;
+          gap: 14px 20px !important;
+          padding: 20px 16px !important;
           overflow: hidden !important;
-          height: 100vh !important;
           box-sizing: border-box !important;
+          min-height: auto !important;
+          height: auto !important;
         }
         .label {
           grid-column: unset;
           margin-bottom: 0 !important;
-          font-size: 9px !important;
+          font-size: 8px !important;
           letter-spacing: 2px !important;
         }
-        /* Group each label+card pair */
         .label + * {
-          margin-top: -12px;
+          margin-top: -8px;
         }
-        /* Scale down cards to fit */
         .a, .b, .c, .d, .e, .f {
           transform-origin: top center;
           max-width: 100% !important;
           width: 100% !important;
         }
-        /* Infinite animation loop via replay class */
-        .replay * {
-          animation-iteration-count: infinite !important;
+        /* Scale everything to fit the viewport */
+        .grid-cell {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+          min-width: 0;
+        }
+        .grid-cell > *:not(.label) {
+          width: 100% !important;
+          max-width: 100% !important;
         }
       `;
       doc.head.appendChild(style);
@@ -65,17 +73,31 @@
       body.innerHTML = '';
       for (let i = 0; i < children.length; i += 2) {
         const cell = doc.createElement('div');
-        cell.style.cssText = 'display:flex; flex-direction:column; align-items:center; gap:8px;';
+        cell.className = 'grid-cell';
         if (children[i]) cell.appendChild(children[i]);
         if (children[i+1]) cell.appendChild(children[i+1]);
         body.appendChild(cell);
       }
 
-      // Replay animations every 6 seconds
+      // Scale body to fit the iframe viewport
+      function scaleToFit() {
+        body.style.transform = 'none';
+        const contentH = body.scrollHeight;
+        const viewH = win.innerHeight;
+        if (contentH > viewH) {
+          const scale = viewH / contentH;
+          body.style.transform = 'scale(' + scale + ')';
+          body.style.transformOrigin = 'top left';
+          body.style.width = (100 / scale) + '%';
+        }
+      }
+      scaleToFit();
+      win.addEventListener('resize', scaleToFit);
+
+      // Replay animations every 7 seconds
       function replayAnimations() {
-        const allAnimated = doc.querySelectorAll('[style*="animation"], .a, .b, .c, .d, .e, .f');
         doc.body.querySelectorAll('*').forEach(el => {
-          const cs = f.contentWindow.getComputedStyle(el);
+          const cs = win.getComputedStyle(el);
           if (cs.animationName && cs.animationName !== 'none') {
             el.style.animation = 'none';
           }
