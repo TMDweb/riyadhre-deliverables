@@ -6,7 +6,7 @@
 <title>Email Signature Preview</title>
 <style>
   html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; }
-  iframe { width: 100%; height: 100%; border: none; }
+  iframe { width: 100%; height: 100%; border: none; opacity: 0; transition: opacity 0.3s ease; }
 </style>
 </head>
 <body>
@@ -89,6 +89,9 @@
       }
       scaleToFit();
       win.addEventListener('resize', scaleToFit);
+
+      // Show iframe now that grid is ready
+      f.style.opacity = '1';
 
       // Replay: fade out, clone cells to restart animations, fade in
       setInterval(() => {
