@@ -92,149 +92,6 @@
         }
 
         /* ═══════════════════════════════
-           HERO
-        ═══════════════════════════════ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 48px 80px;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(ellipse 600px 400px at 20% 50%, rgba(41, 54, 108, 0.15) 0%, transparent 70%),
-                radial-gradient(ellipse 500px 350px at 80% 40%, rgba(252, 191, 44, 0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 24px;
-            border: 1px solid var(--blue-mid);
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--blue-pale);
-            margin-bottom: 48px;
-            position: relative;
-            z-index: 1;
-            animation: fadeDown 0.8s ease both;
-        }
-
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold);
-        }
-
-        .hero-title {
-            font-size: clamp(48px, 7vw, 96px);
-            font-weight: 700;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            position: relative;
-            z-index: 1;
-            animation: fadeUp 0.8s ease 0.15s both;
-        }
-
-        .hero-title .accent {
-            color: var(--gold);
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            font-weight: 300;
-            color: var(--blue-pale);
-            margin-top: 28px;
-            max-width: 580px;
-            position: relative;
-            z-index: 1;
-            animation: fadeUp 0.8s ease 0.3s both;
-        }
-
-        .hero-meta {
-            display: flex;
-            gap: 48px;
-            margin-top: 64px;
-            position: relative;
-            z-index: 1;
-            animation: fadeUp 0.8s ease 0.45s both;
-        }
-
-        .hero-meta-item {
-            text-align: center;
-        }
-
-        .hero-meta-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .hero-meta-label {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--blue-light);
-            margin-top: 4px;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            animation: fadeUp 0.8s ease 0.6s both;
-        }
-
-        .scroll-hint span {
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--blue-light);
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 40px;
-            background: var(--blue-mid);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .scroll-line::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: var(--gold);
-            animation: scrollDown 2s ease infinite;
-        }
-
-        /* ═══════════════════════════════
            SECTIONS COMMON
         ═══════════════════════════════ */
         .section {
@@ -376,9 +233,7 @@
             color: var(--blue-light);
         }
 
-        /* Uniform cards — no featured override */
-
-        /* Multi-image card (e.g., business cards front/back) */
+        /* Multi-image card */
         .design-card-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -389,9 +244,67 @@
             aspect-ratio: 4 / 3;
         }
 
-        /* Envelope card with two sizes */
-        .design-card-images.triple .design-card-image {
-            aspect-ratio: 4 / 3;
+        /* Option label overlay */
+        .option-label {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 3px 10px;
+            background: rgba(12, 14, 29, 0.8);
+            border: 1px solid var(--blue-mid);
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            z-index: 2;
+        }
+
+        /* Option group label */
+        .option-group-label {
+            padding: 10px 16px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(47, 62, 117, 0.15);
+            border-bottom: 1px solid rgba(47, 62, 117, 0.3);
+        }
+
+        /* Download links */
+        .download-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border: 1px solid var(--blue-mid);
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--blue-pale);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .download-link:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(252, 191, 44, 0.06);
+        }
+
+        .download-link svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
         }
 
         /* ═══════════════════════════════
@@ -443,6 +356,7 @@
         .content-item-icon.ppt { background: rgba(252, 191, 44, 0.1); border: 1px solid rgba(252, 191, 44, 0.2); }
         .content-item-icon.banner { background: rgba(136, 201, 196, 0.1); border: 1px solid rgba(136, 201, 196, 0.2); }
         .content-item-icon.gift { background: rgba(252, 186, 34, 0.1); border: 1px solid rgba(252, 186, 34, 0.2); }
+        .content-item-icon.brand { background: rgba(95, 115, 191, 0.15); border: 1px solid rgba(95, 115, 191, 0.25); }
 
         .content-item-info h3 {
             font-size: 16px;
@@ -483,70 +397,6 @@
         .content-item:hover .content-item-arrow svg {
             stroke: var(--gold);
             transform: translateX(2px);
-        }
-
-        /* ═══════════════════════════════
-           IN PROGRESS SECTION
-        ═══════════════════════════════ */
-        .progress-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .progress-card {
-            padding: 28px;
-            border: 1px solid rgba(47, 62, 117, 0.3);
-            border-radius: 14px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--blue-mid);
-        }
-
-        .progress-card-icon {
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-
-        .progress-card h3 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .progress-card p {
-            font-size: 12px;
-            color: var(--blue-pale);
-            font-weight: 300;
-        }
-
-        .progress-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--yellow-mid);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .progress-status .pulse {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--yellow-mid);
-            animation: pulse 2s ease infinite;
         }
 
         /* ═══════════════════════════════
@@ -672,7 +522,6 @@
         }
 
         @media (max-width: 600px) {
-            .hero-meta { flex-direction: column; gap: 24px; }
             .design-grid { grid-template-columns: 1fr; }
             .design-card-images { grid-template-columns: 1fr; }
         }
@@ -685,8 +534,8 @@
         <div class="nav-logo"><img src="TMD%20Logo%20White.svg" alt="TMD" style="height: 28px; display: block;"></div>
         <ul class="nav-links">
             <li><a href="#designs">Designs</a></li>
+            <li><a href="#downloads">Downloads</a></li>
             <li><a href="#content">Content</a></li>
-            <li><a href="#progress">In Progress</a></li>
         </ul>
     </nav>
 
@@ -702,129 +551,157 @@
 
             <!-- ══ LETTERHEAD ══ -->
             <div class="design-card reveal">
-                <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
-                    <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Letterhead/Mockup.png" alt="Letterhead Mockup" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Mockup</span>
-                    </div>
-                    <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Letterhead/Word.png" alt="Letterhead Word Template" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Word Template</span>
-                    </div>
+                <div class="design-card-image" onclick="openLightbox(this)">
+                    <img src="Letterhead/Mockup.png" alt="Letterhead Mockup">
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Letterhead</h3>
-                    <p class="design-card-desc">Digital template available in both editable Word and PDF formats, ready for official correspondence.</p>
+                    <p class="design-card-desc">Digital template ready for official correspondence.</p>
                 </div>
             </div>
 
             <!-- ══ BUSINESS CARDS ══ -->
             <div class="design-card reveal">
-                <div class="design-card-images" style="grid-template-columns: 1fr; gap: 2px;">
+                <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Business%20Card/Mockup.png" alt="Business Card Mockup" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Mockup</span>
+                        <span class="option-label">Draft v1</span>
+                        <img src="Business%20Card/Draft/v1/Mockup.png" alt="Business Card Draft v1 Mockup">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Business%20Card/Face.png" alt="Business Card Front" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Front</span>
+                        <span class="option-label">Draft v2</span>
+                        <img src="Business%20Card/Draft/v2/Mockup2.png" alt="Business Card Draft v2 Mockup">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Business%20Card/Back.png" alt="Business Card Back" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Back</span>
+                        <span class="option-label">v2 Front</span>
+                        <img src="Business%20Card/Draft/v2/Face-2.png" alt="Business Card v2 Front">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">v2 Back</span>
+                        <img src="Business%20Card/Draft/v2/Back.png" alt="Business Card v2 Back">
                     </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Business Cards</h3>
-                    <p class="design-card-desc">Bilingual Arabic/English layout, front and back, following brand guidelines.</p>
+                    <p class="design-card-desc">Bilingual Arabic/English layout with multiple design options (light and dark face variants).</p>
+                    <div class="download-links">
+                        <a class="download-link" href="Business%20Card/Business%20card.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Final PDF</a>
+                        <a class="download-link" href="Business%20Card/op%201/Face%20Light.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Op 1 Face Light</a>
+                        <a class="download-link" href="Business%20Card/op%201/Face%20dark.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Op 1 Face Dark</a>
+                        <a class="download-link" href="Business%20Card/op%201/Back.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Op 1 Back</a>
+                        <a class="download-link" href="Business%20Card/op%202/Face%20Light.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Op 2 Face Light</a>
+                        <a class="download-link" href="Business%20Card/op%202/Face%20dark.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Op 2 Face Dark</a>
+                        <a class="download-link" href="Business%20Card/op%202/Back.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Op 2 Back</a>
+                        <a class="download-link" href="Business%20Card/Printing%20files/Face.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Print Face</a>
+                        <a class="download-link" href="Business%20Card/Printing%20files/Back.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Print Back</a>
+                    </div>
                 </div>
             </div>
 
             <!-- ══ ENVELOPES ══ -->
             <div class="design-card reveal">
-                <div class="design-card-image" onclick="openLightbox(this)">
-                    <img src="Envelope/Envelope-Mockup.png" alt="Envelope" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Envelope Preview</span>
+                <div class="design-card-images" style="grid-template-columns: 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Envelope/Envelope-Mockup.png" alt="Envelope Mockup">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Envelope/Envelope-Mockup%20(1).png" alt="Envelope Mockup 2">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">A4</span>
+                        <img src="Envelope/a4.png" alt="Envelope A4">
+                    </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Envelopes</h3>
-                    <p class="design-card-desc">Layout designs for both C4 and DL sizes, complete and print-ready.</p>
+                    <p class="design-card-desc">Multiple envelope sizes with branded layout, complete and print-ready.</p>
                 </div>
             </div>
 
             <!-- ══ EMAIL SIGNATURE ══ -->
             <div class="design-card reveal">
                 <div class="design-card-image" onclick="openLightbox(this)">
-                    <img src="Email%20Signature/Layout.png" alt="Email Signature Layout" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Email Signature Preview</span>
+                    <img src="Email%20Signature/Layout.png" alt="Email Signature Layout">
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Email Signature</h3>
-                    <p class="design-card-desc">Professional bilingual email signature layout, ready for implementation across all official staff email accounts.</p>
+                    <p class="design-card-desc">Professional bilingual email signature layout with working HTML template.</p>
+                    <div class="download-links">
+                        <a class="download-link" href="Email%20Signature/RiyadhRe-Email-Signature.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> HTML Template</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ PRESENTATION FOLDERS ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Presentation%20Folder/03.png" alt="Presentation Folder Design 1">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Presentation%20Folder/04.png" alt="Presentation Folder Design 2">
+                    </div>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Presentation Folders</h3>
+                    <p class="design-card-desc">Branded folder designs for exterior and interior pocket layouts.</p>
                 </div>
             </div>
 
             <!-- ══ ROLL-UP BANNERS ══ -->
             <div class="design-card reveal">
                 <div class="design-card-image" onclick="openLightbox(this)" style="aspect-ratio: 4/5;">
-                    <img src="Rollup/Mockup.png" alt="Roll-up Banner" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                    <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Roll-up Banner Preview</span>
+                    <img src="Rollup/Preview.png" alt="Roll-up Banner Preview">
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Roll-up Banners</h3>
-                    <p class="design-card-desc">Layout design (85 × 200 cm) complete and ready for final export.</p>
-                </div>
-            </div>
-
-            <!-- ══ PRESENTATION FOLDERS ══ -->
-            <div class="design-card reveal">
-                <div class="design-card-images" style="grid-template-columns: 1fr; gap: 2px;">
-                    <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Presentation%20Folder/Mockup.jpeg" alt="Presentation Folder Mockup" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Mockup</span>
+                    <p class="design-card-desc">Layout design (85 x 200 cm) complete and ready for print.</p>
+                    <div class="download-links">
+                        <a class="download-link" href="Rollup/roll.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Roll-up PDF</a>
                     </div>
-                    <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Presentation%20Folder/01.png" alt="Folder Exterior" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Exterior</span>
-                    </div>
-                    <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Presentation%20Folder/02.png" alt="Folder Interior" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Interior</span>
-                    </div>
-                </div>
-                <div class="design-card-body">
-                    <h3 class="design-card-title">Presentation Folders</h3>
-                    <p class="design-card-desc">Exterior (front and back cover) and interior pocket layout, designed and complete.</p>
                 </div>
             </div>
 
             <!-- ══ SOCIAL MEDIA BRAND KIT ══ -->
             <div class="design-card reveal">
+                <div class="option-group-label">Option 1</div>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Social%20Media%20Brand%20Kit/Artboard%201.png" alt="Social Media Template 1" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 1</span>
+                        <img src="Social%20Media%20Brand%20Kit/Artboard%201.png" alt="Social Media Template 1">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Social%20Media%20Brand%20Kit/Artboard%202.png" alt="Social Media Template 2" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 2</span>
+                        <img src="Social%20Media%20Brand%20Kit/Artboard%202.png" alt="Social Media Template 2">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Social%20Media%20Brand%20Kit/Artboard%203.png" alt="Social Media Template 3" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 3</span>
+                        <img src="Social%20Media%20Brand%20Kit/Artboard%203.png" alt="Social Media Template 3">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Social%20Media%20Brand%20Kit/Artboard%204.png" alt="Social Media Template 4" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 4</span>
+                        <img src="Social%20Media%20Brand%20Kit/Artboard%204.png" alt="Social Media Template 4">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Social%20Media%20Brand%20Kit/Artboard%205.png" alt="Social Media Template 5" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Template 5</span>
+                        <img src="Social%20Media%20Brand%20Kit/Artboard%205.png" alt="Social Media Template 5">
+                    </div>
+                </div>
+                <div class="option-group-label">Option 2</div>
+                <div class="design-card-images" style="grid-template-columns: 1fr 1fr 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Social%20Media%20Brand%20Kit/op%202/Artboard%201.png" alt="Social Media Op 2 Template 1">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Social%20Media%20Brand%20Kit/op%202/Artboard%202.png" alt="Social Media Op 2 Template 2">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Social%20Media%20Brand%20Kit/op%202/Artboard%203.png" alt="Social Media Op 2 Template 3">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Social%20Media%20Brand%20Kit/op%202/Artboard%204.png" alt="Social Media Op 2 Template 4">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <img src="Social%20Media%20Brand%20Kit/op%202/Artboard%205.png" alt="Social Media Op 2 Template 5">
                     </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Social Media Brand Kit</h3>
-                    <p class="design-card-desc">5 branded templates for social media platforms, designed for announcements, quotes, stats, events, and carousels.</p>
+                    <p class="design-card-desc">Two design options with 5 branded templates each, for announcements, quotes, stats, events, and carousels.</p>
                 </div>
             </div>
 
@@ -832,31 +709,137 @@
             <div class="design-card reveal">
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Gifts/Gift%20(1).png" alt="Gift Application 1" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 1</span>
+                        <img src="Gifts/Gift%20(1).png" alt="Gift Application 1">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Gifts/Gift%20(2).png" alt="Gift Application 2" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 2</span>
+                        <img src="Gifts/Gift%20(2).png" alt="Gift Application 2">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Gifts/Gift%20(3).png" alt="Gift Application 3" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 3</span>
+                        <img src="Gifts/Gift%20(3).png" alt="Gift Application 3">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Gifts/Gift%20(4).png" alt="Gift Application 4" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 4</span>
+                        <img src="Gifts/Gift%20(4).png" alt="Gift Application 4">
                     </div>
                     <div class="design-card-image" onclick="openLightbox(this)">
-                        <img src="Gifts/Gift%20(5).png" alt="Gift Application 5" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder').style.display='flex';">
-                        <span class="placeholder" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center;">Gift 5</span>
+                        <img src="Gifts/Gift%20(5).png" alt="Gift Application 5">
                     </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Gift Applications</h3>
-                    <p class="design-card-desc">Branded gift item mockups featuring the Riyadh Re identity, suitable for corporate gifting and events.</p>
+                    <p class="design-card-desc">5 branded gift item mockups suitable for corporate gifting and events.</p>
                 </div>
             </div>
+
+            <!-- ══ NOTEBOOK ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">Cover 1</span>
+                        <img src="Notebook/01.png" alt="Notebook Cover 1">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">Cover 2</span>
+                        <img src="Notebook/02.png" alt="Notebook Cover 2">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">Cover 3</span>
+                        <img src="Notebook/03.png" alt="Notebook Cover 3">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">Back</span>
+                        <img src="Notebook/Back.png" alt="Notebook Back">
+                    </div>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Notebook</h3>
+                    <p class="design-card-desc">Branded notebook with 3 cover options and back design, including print-ready files.</p>
+                    <div class="download-links">
+                        <a class="download-link" href="Notebook/Printing%20files/Cover01.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Print Cover</a>
+                        <a class="download-link" href="Notebook/Printing%20files/Back.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Print Back</a>
+                        <a class="download-link" href="Notebook/Printing%20files/inside.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Print Inside</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ PRESENTATION TEMPLATE ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">Arabic</span>
+                        <img src="Presentation%20Template/Preview-AR.png" alt="Presentation Template Arabic Preview">
+                    </div>
+                    <div class="design-card-image" onclick="openLightbox(this)">
+                        <span class="option-label">English</span>
+                        <img src="Presentation%20Template/Preview-EN.png" alt="Presentation Template English Preview">
+                    </div>
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Presentation Template</h3>
+                    <p class="design-card-desc">Master PowerPoint template in Arabic and English, available in editable PPTX and PDF formats.</p>
+                    <div class="download-links">
+                        <a class="download-link" href="https://drive.google.com/drive/folders/1n5AZ8IAOm4h19EC07tHTSbzLEii0AXCL" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg> Google Drive</a>
+                        <a class="download-link" href="Presentation%20Template/Presentation%20Template%20AR%20-%20RiyadhRe.pptx" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Arabic PPTX</a>
+                        <a class="download-link" href="Presentation%20Template/Presentation%20Template%20AR%20-%20RiyadhRe.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Arabic PDF</a>
+                        <a class="download-link" href="Presentation%20Template/Presentation%20Template%20EN%20-%20RiyadhRe.pptx" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> English PPTX</a>
+                        <a class="download-link" href="Presentation%20Template/Presentation%20Template%20EN%20-%20RiyadhRe.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> English PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ COMPANY PROFILE ══ -->
+            <div class="design-card reveal">
+                <div class="design-card-image" onclick="openLightbox(this)">
+                    <img src="company%20profile/Preview.png" alt="Company Profile Preview">
+                </div>
+                <div class="design-card-body">
+                    <h3 class="design-card-title">Company Profile</h3>
+                    <p class="design-card-desc">Bilingual company profile document for Riyadh Re.</p>
+                    <div class="download-links">
+                        <a class="download-link" href="https://drive.google.com/drive/folders/1vBiO9U11b3vhlE8jbP8i0fqx6GrHkzHk" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg> Google Drive</a>
+                        <a class="download-link" href="company%20profile/%D8%A7%D9%84%D9%85%D9%84%D9%81%20%D8%A7%D9%84%D8%AA%D8%B9%D8%B1%D9%8A%D9%81%D9%8A%20-%20RiyadhRe..docx" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Profile DOCX</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════ DOWNLOADS ═══════════ -->
+
+    <section class="section" id="downloads">
+        <div class="section-header reveal">
+            <div class="section-number">02 / Downloads</div>
+            <h2 class="section-title">Brand Resources</h2>
+            <p class="section-desc">Brand manual, logo, and reference materials available for download.</p>
+        </div>
+
+        <div class="content-list">
+
+            <a class="content-item reveal" href="Brand%20Manual%20-%20Riyadh%20Re.pdf" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon brand">📘</div>
+                    <div class="content-item-info">
+                        <h3>Brand Manual</h3>
+                        <p>Complete brand guidelines for Riyadh Re (PDF)</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </div>
+            </a>
+
+            <a class="content-item reveal" href="Logo.png" target="_blank">
+                <div class="content-item-left">
+                    <div class="content-item-icon brand">🏷️</div>
+                    <div class="content-item-info">
+                        <h3>Logo</h3>
+                        <p>Riyadh Re logo (PNG)</p>
+                    </div>
+                </div>
+                <div class="content-item-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </div>
+            </a>
 
         </div>
     </section>
@@ -865,7 +848,7 @@
 
     <section class="section" id="content">
         <div class="section-header reveal">
-            <div class="section-number">02 / Content Deliverables</div>
+            <div class="section-number">03 / Content Deliverables</div>
             <h2 class="section-title">Content & Copy</h2>
             <p class="section-desc">All written content, outlines, and copy materials. Click any item to view the full document.</p>
         </div>
@@ -942,7 +925,7 @@
                     <div class="content-item-icon banner">🎯</div>
                     <div class="content-item-info">
                         <h3>Roll-up Banner Copy & Key Messages</h3>
-                        <p>Headlines, taglines, and key messages for roll-up banners (85×200 cm), corporate general and conferences versions, bilingual</p>
+                        <p>Headlines, taglines, and key messages for roll-up banners (85x200 cm), corporate general and conferences versions, bilingual</p>
                     </div>
                 </div>
                 <div class="content-item-arrow">
@@ -966,31 +949,6 @@
         </div>
     </section>
 
-    <!-- ═══════════ IN PROGRESS ═══════════ -->
-
-    <section class="section" id="progress">
-        <div class="section-header reveal">
-            <div class="section-number">03 / In Progress</div>
-            <h2 class="section-title">In Progress</h2>
-            <p class="section-desc">We are actively working on these remaining deliverables. Updates will follow as each item is completed.</p>
-        </div>
-
-        <div class="progress-grid">
-            <div class="progress-card reveal">
-                <div class="progress-card-icon">📖</div>
-                <h3>Company Profile</h3>
-                <p>Full copy and design layout (20 pages, bilingual)</p>
-                <div class="progress-status"><span class="pulse"></span> In Progress</div>
-            </div>
-            <div class="progress-card reveal">
-                <div class="progress-card-icon">📊</div>
-                <h3>PowerPoint Template</h3>
-                <p>Master presentation build (10 slides)</p>
-                <div class="progress-status"><span class="pulse"></span> In Progress</div>
-            </div>
-        </div>
-    </section>
-
     <!-- ═══════════ LIGHTBOX ═══════════ -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <button class="lightbox-close" onclick="closeLightbox()">
@@ -998,6 +956,12 @@
         </button>
         <img id="lightbox-img" src="" alt="Preview">
     </div>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+        <div class="footer-logo"><img src="TMD%20Logo%20White.svg" alt="TMD" style="height: 24px; display: inline-block; opacity: 0.7;"></div>
+        <p class="footer-text" style="margin-top: 12px;">Brand Identity Deliverables</p>
+    </footer>
 
     <script>
         // ── NAV SCROLL ──
@@ -1024,7 +988,7 @@
         // ── LIGHTBOX ──
         function openLightbox(el) {
             const img = el.querySelector('img');
-            if (img && img.style.display !== 'none' && img.src && !img.src.includes('IMAGE_URL_')) {
+            if (img && img.src) {
                 document.getElementById('lightbox-img').src = img.src;
                 document.getElementById('lightbox').classList.add('active');
                 document.body.style.overflow = 'hidden';
