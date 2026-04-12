@@ -541,8 +541,7 @@
 
     <!-- ═══════════ GOOGLE DRIVE BANNER ═══════════ -->
     <div style="padding-top: 80px;">
-        <a href="https://drive.google.com/drive/folders/1vBiO9U11b3vhlE8jbP8i0fqx6GrHkzHk?usp=drive_link" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto; max-width: 1200px; padding: 18px 32px; background: linear-gradient(135deg, #1a73e8, #4285f4); border-radius: 14px; text-decoration: none; color: #fff; font-weight: 600; font-size: 15px; letter-spacing: 0.3px; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(66,133,244,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 28px rgba(66,133,244,0.45)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(66,133,244,0.3)'">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8.267 14.68l-1.894 3.28a.25.25 0 00.217.374h11.82a.25.25 0 00.216-.374l-1.894-3.28H8.267z" fill="#4285F4"/><path d="M12 3.5a.25.25 0 00-.216.125L5.88 14.68h4.387L12 11.16l1.733 3.52h4.387L12.216 3.625A.25.25 0 0012 3.5z" fill="#FBBC04"/><path d="M5.88 14.68l-1.894 3.28a.25.25 0 00.217.374h3.787l1.894-3.28-.001-.001L5.88 14.68z" fill="#34A853"/><path d="M18.12 14.68l1.894 3.28a.25.25 0 01-.217.374H16.01l-1.894-3.28.001-.001 4.003-.373z" fill="#EA4335"/><path d="M12 3.5a.25.25 0 00-.216.125L8.267 10.16l1.733 3.52h4l1.733-3.52-3.517-6.535A.25.25 0 0012 3.5z" fill="#188038"/></svg>
+        <a href="https://drive.google.com/drive/folders/1vBiO9U11b3vhlE8jbP8i0fqx6GrHkzHk?usp=drive_link" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto; max-width: 1200px; padding: 18px 32px; background: #ffc409; border-radius: 14px; text-decoration: none; color: #0c0e1d; font-weight: 600; font-size: 15px; letter-spacing: 0.3px; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 4px 20px rgba(255,196,9,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 28px rgba(255,196,9,0.45)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(255,196,9,0.3)'">
             Open Full Project Folder on Google Drive
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
@@ -610,8 +609,8 @@
 
             <!-- ══ EMAIL SIGNATURE ══ -->
             <div class="design-card reveal" style="grid-column: 1 / -1;">
-                <div style="width: 100%; background: #F5EDE4; border-radius: 16px 16px 0 0; overflow: hidden;">
-                    <iframe src="Email%20Signature/RiyadhRe-Email-Signature.html" style="width: 100%; height: 620px; border: none; display: block;" title="Email Signature — 6 Animated Options" loading="lazy"></iframe>
+                <div id="sig-wrap" style="width: 100%; background: #F5EDE4; border-radius: 16px 16px 0 0; overflow: hidden; position: relative;">
+                    <iframe id="sig-frame" src="Email%20Signature/RiyadhRe-Email-Signature.html" style="width: 100%; height: 620px; border: none; display: block;" title="Email Signature — 6 Animated Options"></iframe>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Email Signature</h3>
@@ -970,6 +969,17 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
         });
+
+        // ── EMAIL SIGNATURE ANIMATION LOOP ──
+        (function() {
+            const frame = document.getElementById('sig-frame');
+            if (!frame) return;
+            const src = frame.src;
+            setInterval(() => {
+                frame.src = '';
+                requestAnimationFrame(() => { frame.src = src; });
+            }, 8000);
+        })();
     </script>
 
 </body>
