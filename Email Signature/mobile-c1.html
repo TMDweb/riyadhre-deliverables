@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RiyadhRe Email Signatures — Option C Refined Variants</title>
+<title>RiyadhRe Signature — C1 Mobile</title>
 <style>
   @font-face {
     font-family: 'ABCFavorit';
@@ -54,24 +54,6 @@
 
   a { text-decoration: none; color: inherit; }
 
-  .label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--lbrown);
-    margin-bottom: 8px;
-    text-align: center;
-  }
-
-  .option-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  /* Shared icon styles */
   .ic svg {
     width: 12px; height: 12px;
     fill: none; stroke: var(--dsand); stroke-width: 1.6;
@@ -92,10 +74,7 @@
     flex-shrink: 0;
   }
 
-  /* ═══════════════════════════════════════
-     OPTION C1 — THE REFINED INLINE
-     ═══════════════════════════════════════ */
-
+  /* ── OPTION C1 ── */
   .c1-bar {
     width: min(100%, 620px);
     display: flex; align-items: center;
@@ -133,7 +112,6 @@
   }
   .c1-bar .sp { display: flex; gap: 6px; }
 
-  /* C1 Awards strip */
   .c1-awards {
     width: min(100%, 620px);
     display: flex; align-items: center; justify-content: center; gap: 20px;
@@ -157,204 +135,84 @@
     flex-shrink: 0;
   }
 
-  /* ═══════════════════════════════════════
-     OPTION C3 — THE TWO-ROW INLINE
-     ═══════════════════════════════════════ */
-
-  .c3-wrap {
-    width: min(100%, 620px);
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 8px 36px rgba(80,62,50,0.14);
-  }
-
-  /* Row 1 */
-  .c3-row1 {
-    display: flex; align-items: center;
-    background: var(--dbrown);
-    padding: 16px 22px;
-  }
-
-  .c3-row1 img {
-    height: 28px; width: auto; flex-shrink: 0;
-  }
-
-  .c3-row1 .vd {
-    width: 1px; height: 36px; background: var(--lbrown);
-    margin: 0 16px; flex-shrink: 0;
-  }
-
-  .c3-row1 .name-block { flex-shrink: 0; }
-  .c3-row1 .nm { font-weight: 700; font-size: 14px; color: var(--white); }
-  .c3-row1 .nm-ar { font-weight: 500; font-size: 10px; color: var(--dsand); margin-top: 1px; }
-  .c3-row1 .rl {
-    font-weight: 400; font-size: 9px; color: var(--lbrown);
-    letter-spacing: 1px; text-transform: none; margin-top: 2px;
-  }
-
-  .c3-row1 .contact-right {
-    display: flex; flex-direction: column; gap: 3px;
-    margin-left: auto;
-  }
-  .c3-row1 .ci {
-    display: flex; align-items: center; gap: 5px;
-    font-size: 10px; font-weight: 400; color: var(--lsand);
-  }
-
-  /* Row 2 */
-  .c3-row2 {
-    display: flex; align-items: center;
-    background: var(--lbrown);
-    padding: 8px 22px;
-  }
-
-  .c3-row2 .awards-row {
-    display: flex; align-items: center; gap: 16px;
-    flex: 1;
-  }
-
-  .c3-row2 .badge {
-    display: flex; align-items: center; gap: 5px;
-    font-size: 9px; font-weight: 500; color: var(--cream);
-    letter-spacing: 0.4px;
-    white-space: nowrap;
-  }
-
-  .c3-row2 .badge .shield-ic { color: var(--dsand); }
-
-  .c3-row2 .badge-sep {
-    width: 1px; height: 12px; background: rgba(245,237,228,0.3);
-    flex-shrink: 0;
-  }
-
-  .c3-row2 .soc-right {
-    display: flex; align-items: center; gap: 8px;
-    margin-left: auto;
-    flex-shrink: 0;
-  }
-  .c3-row2 .soc-right a { display: flex; }
-  .c3-row2 .soc-right svg {
-    width: 11px; height: 11px;
-    fill: var(--cream);
-  }
-
-  /* ═══════════════════════════════════════
-     RESPONSIVE
-     ═══════════════════════════════════════ */
-
-  /* ═══ MOBILE: card-style stacked signature ═══ */
+  /* ── MOBILE ── */
   @media (max-width: 500px) {
-    body { padding: 16px 10px; gap: 20px; }
-    .label { font-size: 9px; letter-spacing: 2px; margin-bottom: 6px; }
+    body { padding: 12px 8px; gap: 20px; }
 
-    /* --- C1 mobile card --- */
     .c1-bar {
-      flex-direction: column; align-items: center;
-      text-align: center;
-      padding: 20px 16px 14px; gap: 0;
-      border-radius: 8px 8px 0 0;
+      width: 100%;
+      flex-direction: column; align-items: flex-start;
+      padding: 18px 20px; gap: 0;
+      border-radius: 6px 6px 0 0;
     }
-    .c1-bar img { height: 24px; margin-bottom: 12px; }
+    .c1-bar img { height: 20px; margin-bottom: 14px; }
     .c1-bar .vd { display: none; }
-    .c1-bar .nb { margin-bottom: 14px; }
-    .c1-bar .nm { font-size: 15px; }
-    .c1-bar .nm-ar { font-size: 11px; margin-top: 2px; }
-    .c1-bar .rl { font-size: 10px; margin-top: 4px; }
+    .c1-bar .nb { margin-bottom: 12px; }
+    .c1-bar .nm { font-size: 14px; line-height: 1.2; }
+    .c1-bar .nm-ar { font-size: 10px; margin-top: 2px; }
+    .c1-bar .rl { font-size: 9px; margin-top: 3px; letter-spacing: 0.5px; }
     .c1-bar .inf {
-      margin-left: 0; width: 100%; align-items: center;
-      border-top: 1px solid rgba(142,104,70,0.4);
-      padding-top: 12px; margin-top: 2px; gap: 5px;
+      margin-left: 0; width: 100%; gap: 6px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(142,104,70,0.3);
     }
-    .c1-bar .ci { font-size: 11px; gap: 6px; }
-    .c1-bar .ic svg { width: 13px; height: 13px; }
+    .c1-bar .ci { font-size: 10px; gap: 6px; }
+    .c1-bar .ic svg { width: 11px; height: 11px; }
     .c1-bar .sc {
-      flex-direction: row; gap: 16px; margin-left: 0;
-      margin-top: 12px; justify-content: center;
-      border-top: 1px solid rgba(142,104,70,0.4);
-      padding-top: 12px; width: 100%;
+      flex-direction: row; margin-left: 0; margin-top: 12px;
+      gap: 0; width: 100%;
+      padding-top: 10px;
+      border-top: 1px solid rgba(142,104,70,0.3);
     }
-    .c1-bar .sp { gap: 16px; }
-    .c1-bar .sc svg { width: 14px; height: 14px; }
+    .c1-bar .sp { gap: 12px; }
+    .c1-bar .sc svg { width: 13px; height: 13px; }
+    .c1-bar .sc .sp + .sp { margin-left: 4px; }
 
     .c1-awards {
-      border-radius: 0 0 8px 8px;
-      justify-content: center; gap: 12px;
-      padding: 10px 16px;
+      width: 100%;
+      border-radius: 0 0 6px 6px;
+      padding: 8px 20px; gap: 14px;
     }
-    .c1-awards .badge { font-size: 8px; }
-
-    /* --- C3 mobile card --- */
-    .c3-wrap { border-radius: 8px; }
-    .c3-row1 {
-      flex-direction: column; align-items: center;
-      text-align: center;
-      padding: 20px 16px 14px; gap: 0;
-    }
-    .c3-row1 img { height: 24px; margin-bottom: 12px; }
-    .c3-row1 .vd { display: none; }
-    .c3-row1 .name-block { margin-bottom: 14px; }
-    .c3-row1 .nm { font-size: 15px; }
-    .c3-row1 .nm-ar { font-size: 11px; margin-top: 2px; }
-    .c3-row1 .rl { font-size: 10px; margin-top: 4px; }
-    .c3-row1 .contact-right {
-      margin-left: 0; width: 100%; align-items: center;
-      border-top: 1px solid rgba(142,104,70,0.4);
-      padding-top: 12px; gap: 5px;
-    }
-    .c3-row1 .ci { font-size: 11px; gap: 6px; }
-    .c3-row1 .ic svg { width: 13px; height: 13px; }
-
-    .c3-row2 {
-      justify-content: center; flex-wrap: wrap;
-      padding: 10px 16px; gap: 8px;
-    }
-    .c3-row2 .awards-row { justify-content: center; gap: 10px; flex-wrap: wrap; }
-    .c3-row2 .badge { font-size: 8px; }
-    .c3-row2 .badge-sep { display: none; }
-    .c3-row2 .soc-right { margin-left: 0; gap: 12px; }
-    .c3-row2 .soc-right svg { width: 13px; height: 13px; }
+    .c1-awards .badge { font-size: 8px; gap: 4px; }
+    .c1-awards .shield-ic svg { width: 9px; height: 9px; }
   }
 </style>
 </head>
 <body>
-<div class="option-wrap">
-  <div class="label">Option C1 &mdash; The Refined Inline</div>
-  <div class="c1-bar">
-    <img src="../Logo.png" alt="RiyadhRe">
-    <div class="vd"></div>
-    <div class="nb">
-      <div class="nm">Ahmed Saad</div>
-      <div class="nm-ar">&#x623;&#x62D;&#x645;&#x62F; &#x633;&#x639;&#x62F;</div>
-      <div class="rl">Account Manager</div>
-    </div>
-    <div class="vd"></div>
-    <div class="inf">
-      <a class="ci" href="https://maps.app.goo.gl/L7aaPnk3nR7xotr87" target="_blank"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>RiyadhRe Address</a>
-      <a class="ci" href="mailto:info@riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></span>info@riyadh-re.com</a>
-      <a class="ci" href="tel:+9661235XX789"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.6.57 2.4a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.27 1.6.45 2.4.57A2 2 0 0 1 22 16.92z"/></svg></span>+966 123 5XX 789</a>
-      <a class="ci" href="https://www.riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>www.riyadh-re.com</a>
-    </div>
-    <div class="sc soc">
-      <div class="sp">
-        <a href="#"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-        <a href="#"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
-      </div>
-      <div class="sp">
-        <a href="#"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
-        <a href="#"><svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.83-48.3 93.97 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
-      </div>
-    </div>
+
+<div class="c1-bar">
+  <img src="../Logo.png" alt="RiyadhRe">
+  <div class="vd"></div>
+  <div class="nb">
+    <div class="nm">Ahmed Saad</div>
+    <div class="nm-ar">&#x623;&#x62D;&#x645;&#x62F; &#x633;&#x639;&#x62F;</div>
+    <div class="rl">Account Manager</div>
   </div>
-  <!-- Awards strip -->
-  <div class="c1-awards">
-    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>SAMA Licensed</div>
-    <div class="badge-sep"></div>
-    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>AM Best Rated</div>
-    <div class="badge-sep"></div>
-    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>ISO 9001:2015</div>
+  <div class="vd"></div>
+  <div class="inf">
+    <a class="ci" href="https://maps.app.goo.gl/L7aaPnk3nR7xotr87" target="_blank"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>RiyadhRe Address</a>
+    <a class="ci" href="mailto:info@riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></span>info@riyadh-re.com</a>
+    <a class="ci" href="tel:+9661235XX789"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.6.57 2.4a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.27 1.6.45 2.4.57A2 2 0 0 1 22 16.92z"/></svg></span>+966 123 5XX 789</a>
+    <a class="ci" href="https://www.riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>www.riyadh-re.com</a>
+  </div>
+  <div class="sc soc">
+    <div class="sp">
+      <a href="#"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="#"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+    </div>
+    <div class="sp">
+      <a href="#"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
+      <a href="#"><svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.83-48.3 93.97 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+    </div>
   </div>
 </div>
+<div class="c1-awards">
+  <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>SAMA Licensed</div>
+  <div class="badge-sep"></div>
+  <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>AM Best Rated</div>
+  <div class="badge-sep"></div>
+  <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>ISO 9001:2015</div>
+</div>
 
-
-<!-- ═══════════════════════════════════════════════════════════
-</body></html>
+</body>
+</html>
