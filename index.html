@@ -204,6 +204,86 @@
             margin-bottom: 14px;
         }
 
+        /* Status badges */
+        .status-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 100px;
+            z-index: 3;
+            line-height: 1.4;
+        }
+        .badge-approved {
+            background: #1b7a4a;
+            color: #d4f5e2;
+            box-shadow: 0 2px 8px rgba(27, 122, 74, 0.35);
+        }
+        .badge-edited {
+            background: var(--blue-main);
+            color: var(--blue-pale);
+            box-shadow: 0 2px 8px rgba(41, 54, 108, 0.4);
+        }
+        .badge-new {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow: 0 2px 8px rgba(252, 191, 44, 0.4);
+        }
+        .design-card { position: relative; }
+
+        /* ═══════════════════════════════
+           PHONE MOCKUP
+        ═══════════════════════════════ */
+        .phone-mockup-row {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 32px 24px;
+        }
+        .phone-frame {
+            width: 280px;
+            flex-shrink: 0;
+            background: #1a1a1a;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.5), inset 0 0 0 2px #333;
+        }
+        .phone-notch {
+            width: 80px;
+            height: 6px;
+            background: #333;
+            border-radius: 4px;
+            margin: 4px auto 8px;
+        }
+        .phone-screen {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 480px;
+        }
+        .phone-screen iframe {
+            width: 700px;
+            height: 1200px;
+            border: none;
+            transform: scale(0.4);
+            transform-origin: top left;
+        }
+        .phone-label {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--blue-pale);
+        }
+
         .design-card-title {
             font-size: 22px;
             font-weight: 600;
@@ -559,6 +639,7 @@
 
             <!-- ══ LETTERHEAD ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-image" onclick="openLightbox(this)">
                     <img src="Letterhead/Mockup.png" alt="Letterhead Mockup">
                 </div>
@@ -570,6 +651,7 @@
 
             <!-- ══ BUSINESS CARDS ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-approved">Approved</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <span class="option-label">Front</span>
@@ -592,6 +674,7 @@
 
             <!-- ══ ENVELOPES ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Envelope/Envelope-Mockup.png" alt="Envelope Mockup">
@@ -609,12 +692,48 @@
 
             <!-- ══ EMAIL SIGNATURE ══ -->
             <div class="design-card reveal" style="grid-column: 1 / -1;">
+                <span class="status-badge badge-edited">Edited</span>
                 <div id="sig-wrap" style="width: 100%; background: #F5EDE4; border-radius: 16px 16px 0 0; overflow: hidden; position: relative;">
-                    <iframe id="sig-frame" src="Email%20Signature/preview.html?v=8" style="width: 100%; height: 900px; border: none; display: block;" title="Email Signature — 3 Inline Options"></iframe>
+                    <iframe id="sig-frame" src="Email%20Signature/preview.html?v=9" style="width: 100%; height: 900px; border: none; display: block;" title="Email Signature — 3 Inline Options"></iframe>
+                </div>
+                <!-- Mobile Preview -->
+                <div style="background: var(--black); padding: 12px 0 0; border-top: 1px solid rgba(47,62,117,0.2);">
+                    <div style="text-align: center; padding: 8px 0 16px;">
+                        <span style="font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold);">Mobile Preview</span>
+                    </div>
+                    <div class="phone-mockup-row">
+                        <div>
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <iframe src="Email%20Signature/RiyadhRe-Signature-v2.html?v=1&opt=c1" title="Option C1 Mobile"></iframe>
+                                </div>
+                            </div>
+                            <div class="phone-label">C1 - Refined</div>
+                        </div>
+                        <div>
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <iframe src="Email%20Signature/RiyadhRe-Signature-v2.html?v=1&opt=c2" title="Option C2 Mobile"></iframe>
+                                </div>
+                            </div>
+                            <div class="phone-label">C2 - Compact</div>
+                        </div>
+                        <div>
+                            <div class="phone-frame">
+                                <div class="phone-notch"></div>
+                                <div class="phone-screen">
+                                    <iframe src="Email%20Signature/RiyadhRe-Signature-v2.html?v=1&opt=c3" title="Option C3 Mobile"></iframe>
+                                </div>
+                            </div>
+                            <div class="phone-label">C3 - Two-Row</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="design-card-body">
                     <h3 class="design-card-title">Email Signature</h3>
-                    <p class="design-card-desc">3 refined inline signature options with awards and licensing section. Based on the approved Option C direction.</p>
+                    <p class="design-card-desc">3 refined inline signature options with awards and licensing section. Based on the approved Option C direction. Mobile preview shows how each option renders on small screens.</p>
                     <div class="download-links">
                         <a class="download-link" href="Email%20Signature/RiyadhRe-Signature-v2.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Open Full Page</a>
                     </div>
@@ -623,6 +742,7 @@
 
             <!-- ══ PRESENTATION FOLDERS ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Presentation%20Folder/03.png" alt="Presentation Folder Design 1">
@@ -639,6 +759,7 @@
 
             <!-- ══ ROLL-UP BANNERS ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-image" onclick="openLightbox(this)" style="aspect-ratio: 4/5;">
                     <img src="Rollup/mockup.png" alt="Roll-up Banner Mockup">
                 </div>
@@ -650,6 +771,7 @@
 
             <!-- ══ SOCIAL MEDIA BRAND KIT ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Social%20Media%20Brand%20Kit/Artboard%201.png" alt="Social Media Template 1">
@@ -678,6 +800,7 @@
 
             <!-- ══ GIFT APPLICATIONS ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Gifts/01.png" alt="Gift Application 1">
@@ -703,6 +826,7 @@
 
             <!-- ══ NOTEBOOK ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-approved">Approved</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <span class="option-label">Cover</span>
@@ -730,6 +854,7 @@
 
             <!-- ══ EMPLOYEE IDs ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Employee%20IDs/Mockup.png" alt="Employee ID Mockup">
@@ -746,6 +871,7 @@
 
             <!-- ══ DESKTOP BACKGROUNDS ══ -->
             <div class="design-card reveal" style="grid-column: 1 / -1;">
+                <span class="status-badge badge-new">New</span>
                 <div class="design-card-images" style="grid-template-columns: 1fr 1fr 1fr; gap: 2px;">
                     <div class="design-card-image" onclick="openLightbox(this)">
                         <img src="Desktop%20Backgrounds/01.png" alt="Desktop Background 1">
@@ -774,6 +900,7 @@
 
             <!-- ══ COMPANY PROFILE EN DESIGN ══ -->
             <div class="design-card reveal">
+                <span class="status-badge badge-edited">Edited</span>
                 <div class="design-card-image" onclick="openLightbox(this)">
                     <img src="company%20profile/Preview-EN.png?v=2" alt="Company Profile EN Preview">
                 </div>
@@ -781,7 +908,7 @@
                     <h3 class="design-card-title">Company Profile (English)</h3>
                     <p class="design-card-desc">Designed English company profile (16 pages), pending client approval before Arabic version begins.</p>
                     <div class="download-links">
-                        <a class="download-link" href="https://drive.google.com/drive/folders/1Hez46qJ8uxdObAohVzAUiFYrv6WfeZxq?usp=drive_link" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> View on Drive</a>
+                        <a class="download-link" href="https://drive.google.com/file/d/1PGZgiiDjN-kAimW5nkPeg9g3jp7Eza5q/view?usp=drive_link" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> View PDF on Drive</a>
                     </div>
                 </div>
             </div>

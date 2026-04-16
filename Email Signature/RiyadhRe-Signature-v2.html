@@ -463,5 +463,34 @@
   </div>
 </div>
 
+<script>
+  // If ?opt=c1/c2/c3 param present, show only that option (for phone mockups)
+  (function(){
+    var p = new URLSearchParams(window.location.search);
+    var opt = p.get('opt');
+    if (!opt) return;
+    var map = {c1: 0, c2: 1, c3: 2};
+    var idx = map[opt];
+    if (idx === undefined) return;
+    var body = document.body;
+    var children = Array.from(body.children);
+    var groups = [];
+    var current = [];
+    children.forEach(function(el){
+      if (el.classList && el.classList.contains('label')) {
+        if (current.length) groups.push(current);
+        current = [el];
+      } else {
+        current.push(el);
+      }
+    });
+    if (current.length) groups.push(current);
+    groups.forEach(function(g, i){
+      if (i !== idx) g.forEach(function(el){ el.style.display = 'none'; });
+    });
+    body.style.paddingTop = '16px';
+    body.style.alignItems = 'center';
+  })();
+</script>
 </body>
 </html>
