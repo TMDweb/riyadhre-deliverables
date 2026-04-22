@@ -71,10 +71,14 @@
   /* ── OPTION C1 ── */
   .c1-bar {
     width: min(100%, 620px);
-    display: flex; align-items: center;
+    display: flex; flex-direction: column; align-items: stretch;
     background: var(--dbrown); border-radius: 5px;
     padding: 16px 22px;
     box-shadow: 0 8px 36px rgba(80,62,50,0.14);
+  }
+
+  .c1-bar .c1-top {
+    display: flex; align-items: center;
   }
 
   .c1-bar img {
@@ -98,6 +102,14 @@
   .c1-bar .ci {
     display: flex; align-items: center; gap: 5px;
     font-size: 10px; font-weight: 400; color: var(--lsand);
+  }
+
+  .c1-bar .c1-address {
+    display: flex; align-items: center; gap: 6px;
+    margin-top: 12px; padding-top: 10px;
+    border-top: 1px solid rgba(142,104,70,0.3);
+    font-size: 10px; font-weight: 400; color: var(--lsand);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
 
   /* Awards + Social strip */
@@ -146,9 +158,12 @@
 
     .c1-bar {
       width: 100%;
-      flex-direction: column; align-items: flex-start;
-      padding: 18px 20px; gap: 0;
+      flex-direction: column; align-items: stretch;
+      padding: 18px 20px;
       border-radius: 6px 6px 0 0;
+    }
+    .c1-bar .c1-top {
+      flex-direction: column; align-items: flex-start;
     }
     .c1-bar img { height: 20px; margin-bottom: 14px; }
     .c1-bar .vd { display: none; }
@@ -163,6 +178,13 @@
     }
     .c1-bar .ci { font-size: 10px; gap: 6px; }
     .c1-bar .ic svg { width: 11px; height: 11px; }
+    .c1-bar .c1-address {
+      font-size: 9.5px; line-height: 1.35;
+      white-space: normal; overflow: visible; text-overflow: clip;
+      align-items: flex-start; gap: 6px;
+      margin-top: 10px; padding-top: 10px;
+    }
+    .c1-bar .c1-address .ic { margin-top: 1px; }
 
     .c1-awards {
       width: 100%;
@@ -170,8 +192,9 @@
       padding: 8px 20px; gap: 8px;
       flex-wrap: wrap;
     }
-    .c1-awards .awards-row { gap: 10px; flex-wrap: wrap; }
+    .c1-awards .awards-row { gap: 6px 10px; flex-wrap: wrap; }
     .c1-awards .badge { font-size: 8px; gap: 4px; }
+    .c1-awards .badge-sep { display: none; }
     .c1-awards .shield-ic svg { width: 9px; height: 9px; }
     .c1-awards .soc-right { margin-left: auto; gap: 10px; }
     .c1-awards .soc-right svg { width: 11px; height: 11px; }
@@ -181,34 +204,35 @@
 <body>
 
 <div class="c1-bar">
-  <img src="../Logo.png" alt="RiyadhRe">
-  <div class="vd"></div>
-  <div class="nb">
-    <div class="nm">Ahmed Saad</div>
-    <div class="nm-ar">&#x623;&#x62D;&#x645;&#x62F; &#x633;&#x639;&#x62F;</div>
-    <div class="rl">Account Manager</div>
+  <div class="c1-top">
+    <img src="../Logo.png" alt="RiyadhRe">
+    <div class="vd"></div>
+    <div class="nb">
+      <div class="nm">Ahmed Saad</div>
+      <div class="nm-ar">&#x623;&#x62D;&#x645;&#x62F; &#x633;&#x639;&#x62F;</div>
+      <div class="rl">Account Manager</div>
+    </div>
+    <div class="vd"></div>
+    <div class="inf">
+      <a class="ci" href="mailto:info@riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></span>info@riyadh-re.com</a>
+      <a class="ci" href="tel:+9661235XX789"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.6.57 2.4a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.27 1.6.45 2.4.57A2 2 0 0 1 22 16.92z"/></svg></span>+966 123 5XX 789</a>
+      <a class="ci" href="https://www.riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>www.riyadh-re.com</a>
+    </div>
   </div>
-  <div class="vd"></div>
-  <div class="inf">
-    <a class="ci" href="https://maps.app.goo.gl/L7aaPnk3nR7xotr87" target="_blank"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>RiyadhRe Address</a>
-    <a class="ci" href="mailto:info@riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></span>info@riyadh-re.com</a>
-    <a class="ci" href="tel:+9661235XX789"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.6.57 2.4a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.27 1.6.45 2.4.57A2 2 0 0 1 22 16.92z"/></svg></span>+966 123 5XX 789</a>
-    <a class="ci" href="https://www.riyadh-re.com"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>www.riyadh-re.com</a>
+  <div class="c1-address">
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+    <span>6934 Olaya Street, As-Sahafah, 13th floor Riyadh 13315 | Kingdom of Saudi Arabia</span>
   </div>
 </div>
 <div class="c1-awards">
   <div class="awards-row">
-    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>SAMA Licensed</div>
+    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>S&amp;P Global Ratings A-</div>
     <div class="badge-sep"></div>
-    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>AM Best Rated</div>
-    <div class="badge-sep"></div>
-    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>ISO 9001:2015</div>
+    <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Regulated by Insurance Authority license TMN/39/202511</div>
   </div>
   <div class="soc-right">
-    <a href="#"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-    <a href="#"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
-    <a href="#"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
-    <a href="#"><svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.83-48.3 93.97 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+    <a href="https://www.linkedin.com/company/riyadhre" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.83-48.3 93.97 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+    <a href="https://x.com/RiyadhRe_sa" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
   </div>
 </div>
 
