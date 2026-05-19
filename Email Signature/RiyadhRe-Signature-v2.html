@@ -160,16 +160,23 @@
   .c2-row2 .soc-right a { display: flex; }
   .c2-row2 .soc-right svg { width: 11px; height: 11px; }
 
-  .c2-row3 {
-    padding: 9px 22px 11px;
-    font-size: 8.5px;
+  .c2-disclaimer {
+    width: min(100%, 620px);
+    margin-top: 14px;
+    padding: 10px 4px 0;
+    font-size: 9px;
     font-weight: 400;
-    line-height: 1.55;
-    letter-spacing: 0.2px;
+    line-height: 1.6;
+    letter-spacing: 0.15px;
+    color: #0a0a0a;
+    border-top: 1px solid rgba(80,62,50,0.18);
   }
-  .c2-row3 .dl-tag {
-    font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
-    margin-right: 6px; opacity: 0.85;
+  .c2-disclaimer .dl-tag {
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    margin-right: 6px;
+    color: #0a0a0a;
   }
 
   /* ═══════════════════════════════════════
@@ -191,12 +198,6 @@
   .dark .c2-row2 .badge .shield-ic { color: var(--dsand); }
   .dark .c2-row2 .badge-sep { background: rgba(245,237,228,0.3); }
   .dark .c2-row2 .soc-right svg { fill: var(--cream); }
-  .dark .c2-row3 {
-    background: var(--lbrown);
-    color: rgba(245,237,228,0.7);
-    border-top: 1px solid rgba(245,237,228,0.18);
-  }
-  .dark .c2-row3 .dl-tag { color: var(--dsand); }
 
   /* ═══════════════════════════════════════
      LIGHT THEME (flipped)
@@ -217,12 +218,6 @@
   .light .c2-row2 .badge .shield-ic { color: var(--dsand); }
   .light .c2-row2 .badge-sep { background: rgba(228,187,144,0.3); }
   .light .c2-row2 .soc-right svg { fill: var(--cream); }
-  .light .c2-row3 {
-    background: var(--dbrown);
-    color: rgba(245,237,228,0.6);
-    border-top: 1px solid rgba(245,237,228,0.12);
-  }
-  .light .c2-row3 .dl-tag { color: var(--dsand); }
 
   /* ═══════════════════════════════════════
      MOBILE
@@ -274,7 +269,7 @@
     .c2-row2 .soc-right { margin-left: auto; gap: 12px; }
     .c2-row2 .soc-right svg { width: 13px; height: 13px; }
 
-    .c2-row3 { padding: 10px 18px 12px; font-size: 8.5px; line-height: 1.6; }
+    .c2-disclaimer { margin-top: 12px; padding: 10px 2px 0; font-size: 9px; line-height: 1.6; }
   }
 </style>
 </head>
@@ -317,9 +312,9 @@
         <a href="https://x.com/RiyadhRe_sa" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       </div>
     </div>
-    <div class="c2-row3">
-      <span class="dl-tag">Disclaimer placeholder</span>This email and any attachments are confidential and intended solely for the named recipient. If you have received this email in error, please notify the sender and delete it from your system. <em>[Final disclaimer text to be provided by RiyadhRe.]</em>
-    </div>
+  </div>
+  <div class="c2-disclaimer">
+    <span class="dl-tag">Disclaimer placeholder</span>This email and any attachments are confidential and intended solely for the named recipient. If you have received this email in error, please notify the sender and delete it from your system. <em>[Final disclaimer text to be provided by RiyadhRe.]</em>
   </div>
 </div>
 
@@ -360,9 +355,9 @@
         <a href="https://x.com/RiyadhRe_sa" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       </div>
     </div>
-    <div class="c2-row3">
-      <span class="dl-tag">Disclaimer placeholder</span>This email and any attachments are confidential and intended solely for the named recipient. If you have received this email in error, please notify the sender and delete it from your system. <em>[Final disclaimer text to be provided by RiyadhRe.]</em>
-    </div>
+  </div>
+  <div class="c2-disclaimer">
+    <span class="dl-tag">Disclaimer placeholder</span>This email and any attachments are confidential and intended solely for the named recipient. If you have received this email in error, please notify the sender and delete it from your system. <em>[Final disclaimer text to be provided by RiyadhRe.]</em>
   </div>
 </div>
 
