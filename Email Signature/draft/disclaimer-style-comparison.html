@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RiyadhRe Signature — Disclaimer Style Comparison</title>
+<style>
+  @font-face { font-family: 'ABCFavorit'; src: url('../fonts/ABCFavoritArabic-Light-Trial.otf') format('opentype'); font-weight: 300; }
+  @font-face { font-family: 'ABCFavorit'; src: url('../fonts/ABCFavoritArabic-Regular-Trial.otf') format('opentype'); font-weight: 400; }
+  @font-face { font-family: 'ABCFavorit'; src: url('../fonts/ABCFavoritArabic-Book-Trial.otf') format('opentype'); font-weight: 450; }
+  @font-face { font-family: 'ABCFavorit'; src: url('../fonts/ABCFavoritArabic-Medium-Trial.otf') format('opentype'); font-weight: 500; }
+  @font-face { font-family: 'ABCFavorit'; src: url('../fonts/ABCFavoritArabic-Bold-Trial.otf') format('opentype'); font-weight: 700; }
+
+  :root {
+    --dbrown: #503E32;
+    --lbrown: #8E6846;
+    --dsand: #E4BB90;
+    --lsand: #EDD3BC;
+    --cream: #F5EDE4;
+    --white: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'ABCFavorit', 'Segoe UI', Tahoma, sans-serif;
+    background: var(--cream);
+    display: flex; flex-direction: column; align-items: center;
+    padding: 28px 24px; gap: 36px;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  .group-label { text-align: center; font: 700 11px/1.4 system-ui, sans-serif; color: var(--lbrown); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+  .option-wrap { display: flex; flex-direction: column; align-items: center; width: 100%; }
+  .ic svg { width: 12px; height: 12px; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .shield-ic svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  /* ── shared layout ── */
+  .c2-wrap { width: min(100%, 620px); border-radius: 5px; overflow: hidden; box-shadow: 0 8px 36px rgba(80,62,50,0.14); }
+  .c2-row1 { display: flex; flex-direction: column; align-items: stretch; padding: 16px 22px; }
+  .c2-row1 .c2-top { display: flex; align-items: center; }
+  .c2-row1 img { height: 40px; width: auto; flex-shrink: 0; }
+  .c2-row1 .vd { width: 1px; height: 48px; margin: 0 16px; flex-shrink: 0; }
+  .c2-row1 .name-block { flex-shrink: 0; }
+  .c2-row1 .nm { font-weight: 700; font-size: 14px; }
+  .c2-row1 .nm-ar { font-weight: 500; font-size: 10px; margin-top: 1px; }
+  .c2-row1 .rl { font-weight: 400; font-size: 9px; letter-spacing: 1px; margin-top: 2px; }
+  .c2-row1 .contact-right { display: flex; flex-direction: column; gap: 3px; margin-left: auto; }
+  .c2-row1 .ci { display: flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 400; }
+  .c2-row1 .c2-address { display: flex; align-items: center; gap: 6px; margin-top: 12px; padding-top: 10px; font-size: 10px; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .c2-row2 { display: flex; align-items: center; padding: 8px 22px; }
+  .c2-row2 .awards-row { display: flex; align-items: center; gap: 16px; flex: 1; }
+  .c2-row2 .badge { display: flex; align-items: center; gap: 5px; font-size: 9px; font-weight: 500; letter-spacing: 0.4px; white-space: nowrap; }
+  .c2-row2 .badge-sep { width: 1px; height: 12px; flex-shrink: 0; }
+  .c2-row2 .soc-right { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
+  .c2-row2 .soc-right a { display: flex; }
+  .c2-row2 .soc-right svg { width: 11px; height: 11px; }
+
+  /* dark theme */
+  .dark .c2-row1 { background: var(--dbrown); }
+  .dark .c2-row1 .vd { background: var(--lbrown); }
+  .dark .c2-row1 .nm { color: var(--white); }
+  .dark .c2-row1 .nm-ar { color: var(--dsand); }
+  .dark .c2-row1 .rl { color: var(--lsand); }
+  .dark .c2-row1 .ci { color: var(--lsand); }
+  .dark .c2-row1 .ic svg { stroke: var(--dsand); }
+  .dark .c2-row1 .c2-address { color: var(--lsand); border-top: 1px solid rgba(142,104,70,0.3); }
+  .dark .c2-row2 { background: var(--lbrown); }
+  .dark .c2-row2 .badge { color: var(--cream); }
+  .dark .c2-row2 .badge .shield-ic { color: var(--dsand); }
+  .dark .c2-row2 .badge-sep { background: rgba(245,237,228,0.3); }
+  .dark .c2-row2 .soc-right svg { fill: var(--cream); }
+
+  /* ── disclaimer — TWO STYLES ── */
+  .disc-base {
+    width: min(100%, 620px);
+    margin-top: 14px;
+    font-size: 9px; font-weight: 400; line-height: 1.6;
+    letter-spacing: 0.15px;
+    color: #0a0a0a;
+  }
+  .disc-base .dl-tag {
+    font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase;
+    margin-right: 6px; color: #0a0a0a;
+  }
+  /* Style A: top border only (current production) */
+  .disc-topborder {
+    padding: 10px 4px 0;
+    border-top: 1px solid rgba(80,62,50,0.18);
+  }
+  /* Style B: full border on all sides */
+  .disc-fullborder {
+    padding: 12px 14px;
+    border: 1px solid rgba(80,62,50,0.30);
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div>
+  <div class="group-label">Style A &mdash; Top border only (current live)</div>
+  <div class="option-wrap">
+    <div class="c2-wrap dark">
+      <div class="c2-row1">
+        <div class="c2-top">
+          <img src="../../Logo.png" alt="RiyadhRe">
+          <div class="vd"></div>
+          <div class="name-block">
+            <div class="nm">Ahmed Saad</div>
+            <div class="nm-ar">&#x623;&#x62D;&#x645;&#x62F; &#x633;&#x639;&#x62F;</div>
+            <div class="rl">Account Manager</div>
+          </div>
+          <div class="contact-right">
+            <a class="ci" href="#"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></span>info@riyadh-re.com</a>
+            <a class="ci" href="#"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.6.57 2.4a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.27 1.6.45 2.4.57A2 2 0 0 1 22 16.92z"/></svg></span>+966 123 5XX 789</a>
+            <a class="ci" href="#"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>www.riyadh-re.com</a>
+          </div>
+        </div>
+        <div class="c2-address">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span>6934 Olaya Street, As-Sahafah, 13th floor Riyadh 13315 | Kingdom of Saudi Arabia</span>
+        </div>
+      </div>
+      <div class="c2-row2">
+        <div class="awards-row">
+          <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>S&amp;P Global Ratings A-</div>
+          <div class="badge-sep"></div>
+          <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Regulated by Insurance Authority License TMN/39/202511</div>
+        </div>
+        <div class="soc-right">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.83-48.3 93.97 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="disc-base disc-topborder">
+      <span class="dl-tag">Disclaimer placeholder</span>This email and any attachments are confidential and intended solely for the named recipient. If you have received this email in error, please notify the sender and delete it from your system. <em>[Final disclaimer text to be provided by RiyadhRe.]</em>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="group-label">Style B &mdash; Full border, no background (3rd option)</div>
+  <div class="option-wrap">
+    <div class="c2-wrap dark">
+      <div class="c2-row1">
+        <div class="c2-top">
+          <img src="../../Logo.png" alt="RiyadhRe">
+          <div class="vd"></div>
+          <div class="name-block">
+            <div class="nm">Ahmed Saad</div>
+            <div class="nm-ar">&#x623;&#x62D;&#x645;&#x62F; &#x633;&#x639;&#x62F;</div>
+            <div class="rl">Account Manager</div>
+          </div>
+          <div class="contact-right">
+            <a class="ci" href="#"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg></span>info@riyadh-re.com</a>
+            <a class="ci" href="#"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.6.57 2.4a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.8.27 1.6.45 2.4.57A2 2 0 0 1 22 16.92z"/></svg></span>+966 123 5XX 789</a>
+            <a class="ci" href="#"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>www.riyadh-re.com</a>
+          </div>
+        </div>
+        <div class="c2-address">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span>6934 Olaya Street, As-Sahafah, 13th floor Riyadh 13315 | Kingdom of Saudi Arabia</span>
+        </div>
+      </div>
+      <div class="c2-row2">
+        <div class="awards-row">
+          <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>S&amp;P Global Ratings A-</div>
+          <div class="badge-sep"></div>
+          <div class="badge"><span class="shield-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Regulated by Insurance Authority License TMN/39/202511</div>
+        </div>
+        <div class="soc-right">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.83-48.3 93.97 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="disc-base disc-fullborder">
+      <span class="dl-tag">Disclaimer placeholder</span>This email and any attachments are confidential and intended solely for the named recipient. If you have received this email in error, please notify the sender and delete it from your system. <em>[Final disclaimer text to be provided by RiyadhRe.]</em>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
