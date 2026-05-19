@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RiyadhRe Signature — Job-Title Color Comparison (P2)</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  body { display: flex; flex-direction: column; align-items: stretch; gap: 28px; padding: 28px 24px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .label { text-align: center; font: 600 12px/1.4 system-ui, sans-serif; color: #503E32; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .sub { text-align: center; font: 400 11px/1.4 system-ui, sans-serif; color: #8E6846; margin-top: -6px; margin-bottom: 10px; }
+  .frame-wrap { width: 100%; max-width: 880px; margin: 0 auto; }
+  iframe { width: 100%; height: 230px; border: none; display: block; background: transparent; }
+  .pick { text-align: center; margin-top: 18px; font: 500 13px/1.5 system-ui, sans-serif; color: #503E32; }
+  .pick code { background: #f5ede4; padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div>
+  <div class="label">Current &mdash; #8E6846 (dim brown, low legibility)</div>
+  <div class="sub">This is what the client flagged.</div>
+  <div class="frame-wrap"><iframe id="fCur" src="../RiyadhRe-Signature-v2.html"></iframe></div>
+</div>
+
+<div>
+  <div class="label">Option A &mdash; Sand/Gold #E4BB90 (matches Arabic name)</div>
+  <div class="frame-wrap"><iframe id="fA" src="../RiyadhRe-Signature-v2.html"></iframe></div>
+</div>
+
+<div>
+  <div class="label">Option B &mdash; Light Sand #EDD3BC (matches contact lines)</div>
+  <div class="frame-wrap"><iframe id="fB" src="../RiyadhRe-Signature-v2.html"></iframe></div>
+</div>
+
+<div>
+  <div class="label">Option C &mdash; Warm Cream #F5EDE4 (max legibility, neutral)</div>
+  <div class="frame-wrap"><iframe id="fC" src="../RiyadhRe-Signature-v2.html"></iframe></div>
+</div>
+
+<div>
+  <div class="label">Option D &mdash; Pure White #FFFFFF (highest contrast, matches EN name)</div>
+  <div class="frame-wrap"><iframe id="fD" src="../RiyadhRe-Signature-v2.html"></iframe></div>
+</div>
+
+<div class="pick">Tell me <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>, or paste any hex.</div>
+
+<script>
+  function paint(id, color) {
+    var f = document.getElementById(id);
+    f.addEventListener('load', function() {
+      try {
+        var doc = f.contentDocument;
+        if (!doc) return;
+        doc.body.style.padding = '0';
+        doc.body.style.gap = '0';
+        doc.body.style.background = '#ffffff';
+        if (color) {
+          var rl = doc.querySelector('.c2-row1 .rl');
+          if (rl) rl.style.color = color;
+        }
+      } catch (e) {}
+    });
+  }
+  paint('fCur', null);
+  paint('fA', '#E4BB90');
+  paint('fB', '#EDD3BC');
+  paint('fC', '#F5EDE4');
+  paint('fD', '#FFFFFF');
+</script>
+
+</body>
+</html>
