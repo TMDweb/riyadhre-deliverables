@@ -404,12 +404,15 @@ let selectedDesign = 0;
 const CANVAS_W = 1080;
 const CANVAS_H = 1440;
 
-// `nameY` is the vertical center (as a fraction of canvas height)
-// where the name block sits on each design. Tuned to land in empty space.
+// Per-design overlay settings:
+//   nameY   — vertical center of the name block, as fraction of canvas height
+//   fontSize — px (AR and EN stay equal within a design; differs across designs
+//              because eid01's clean band is narrower than the bottom areas)
+//   accent  — whether to draw the gold underline + diamond beneath the name
 const designs = [
-  { src: 'eid01.png', img: new Image(), nameY: 0.345 }, // sky between pill and Kaaba
-  { src: 'eid02.png', img: new Image(), nameY: 0.935 }, // dark grain below the triangle
-  { src: 'eid03.png', img: new Image(), nameY: 0.935 }  // dark area at very bottom
+  { src: 'eid01.png', img: new Image(), nameY: 0.395, fontSize: 42, accent: false }, // narrow band between pill and Kaaba
+  { src: 'eid02.png', img: new Image(), nameY: 0.935, fontSize: 56, accent: true  }, // dark grain below the triangle
+  { src: 'eid03.png', img: new Image(), nameY: 0.935, fontSize: 56, accent: true  }  // dark area at very bottom
 ];
 
 let loadedCount = 0;
@@ -445,11 +448,11 @@ function renderCard(ctx, nameAr, nameEn) {
   const hasEn = !!nameEn;
   if (!hasAr && !hasEn) return; // nothing to overlay
 
-  // Layout vars
+  // Layout vars — per-design font size; AR + EN are always equal within a design
   const cx = CANVAS_W / 2;
   const cy = CANVAS_H * d.nameY;
-  const FONT_SIZE = 56;           // unified size for AR + EN per spec
-  const LINE_GAP = 16;            // vertical gap between AR and EN baselines
+  const FONT_SIZE = d.fontSize || 56;
+  const LINE_GAP = Math.round(FONT_SIZE * 0.28);
   const LINE_H = FONT_SIZE + LINE_GAP;
 
   // Configure text style
@@ -478,8 +481,10 @@ function renderCard(ctx, nameAr, nameEn) {
   ctx.shadowOffsetX = 0;
   ctx.shadowOffsetY = 0;
 
-  // Decorative gold accent under the name(s) — subtle brand tie-in
-  drawGoldAccent(ctx, cx, cy, hasAr && hasEn ? LINE_H : 0, FONT_SIZE);
+  // Decorative gold accent — only on designs that have room beneath the name
+  if (d.accent) {
+    drawGoldAccent(ctx, cx, cy, hasAr && hasEn ? LINE_H : 0, FONT_SIZE);
+  }
 }
 
 function drawNameLines(ctx, nameAr, nameEn, cx, cy, fontSize, lineH) {
