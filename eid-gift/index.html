@@ -11,37 +11,27 @@
   @font-face {
     font-family: 'ABC Favorit Arabic';
     src: url('fonts/ABCFavoritArabic-Light-Trial.otf') format('opentype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 300; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'ABC Favorit Arabic';
     src: url('fonts/ABCFavoritArabic-Book-Trial.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 400; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'ABC Favorit Arabic';
     src: url('fonts/ABCFavoritArabic-Regular-Trial.otf') format('opentype');
-    font-weight: 450;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 450; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'ABC Favorit Arabic';
     src: url('fonts/ABCFavoritArabic-Medium-Trial.otf') format('opentype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 500; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: 'ABC Favorit Arabic';
     src: url('fonts/ABCFavoritArabic-Bold-Trial.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 700; font-style: normal; font-display: swap;
   }
 
   :root {
@@ -53,6 +43,7 @@
     --light-brown: #8E6846;
     --light-sand: #EDD3BC;
     --cream: #FDFAF7;
+    --tmd-blue: #0C0E1D;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -100,7 +91,7 @@
   .container {
     max-width: 1180px;
     margin: 0 auto;
-    padding: 48px 24px 80px;
+    padding: 48px 24px 64px;
   }
 
   .page-title {
@@ -248,7 +239,7 @@
     box-shadow: 0 10px 44px rgba(2,73,65,0.18);
     max-width: 420px;
     width: 100%;
-    background: var(--green);
+    background: #1a1a1a;
   }
   .preview-wrapper canvas {
     display: block;
@@ -296,18 +287,33 @@
   }
   .secondary-btn:hover { color: var(--green); }
 
-  /* Footer */
+  /* Footer — Prepared by TMD */
   .footer {
-    background: var(--green);
-    color: var(--dark-sand);
+    background: var(--cream);
+    border-top: 1px solid rgba(2,73,65,0.08);
     text-align: center;
-    padding: 24px;
-    font-size: 13px;
+    padding: 36px 24px 28px;
   }
-  .footer a {
-    color: var(--dark-sand);
-    text-decoration: none;
-    border-bottom: 1px dashed rgba(228,187,144,0.5);
+  .footer .prepared-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--light-brown);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .footer .tmd-logo {
+    display: block;
+    margin: 0 auto;
+    height: 72px;
+    width: auto;
+  }
+  .footer .copyright {
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--light-brown);
+    opacity: 0.8;
   }
 
   #exportCanvas { display: none; }
@@ -364,7 +370,7 @@
   <div class="step-label">٣ &nbsp;·&nbsp; معاينة وتحميل</div>
   <div class="preview-section">
     <div class="preview-wrapper">
-      <canvas id="previewCanvas" width="1080" height="1640"></canvas>
+      <canvas id="previewCanvas" width="1080" height="1440"></canvas>
     </div>
     <div class="actions">
       <button class="download-btn" onclick="downloadCard()">
@@ -378,11 +384,13 @@
 </div>
 
 <div class="footer">
-  RiyadhRe © 2026 — الرياض لإعادة التأمين
+  <span class="prepared-label">Prepared by</span>
+  <img src="tmd-logo.png" alt="The Marketing Department — A TTP Company" class="tmd-logo">
+  <p class="copyright">RiyadhRe © 2026 — الرياض لإعادة التأمين</p>
 </div>
 
-<!-- Hidden export canvas (full resolution 1080 x 1640) -->
-<canvas id="exportCanvas" width="1080" height="1640"></canvas>
+<!-- Hidden export canvas (full resolution 1080 x 1440) -->
+<canvas id="exportCanvas" width="1080" height="1440"></canvas>
 
 <script>
 // ──────────────────────────────────────────────
@@ -390,22 +398,22 @@
 // ──────────────────────────────────────────────
 let selectedDesign = 0;
 
-// Source images are 1080 x 1440. We render onto a 1080 x 1640 canvas
-// — the extra 200px is a brand-green strip at the bottom holding the name.
-const IMG_W = 1080;
-const IMG_H = 1440;
-const STRIP_H = 200;
-const CANVAS_W = IMG_W;
-const CANVAS_H = IMG_H + STRIP_H; // 1640
+// Output matches the source images: 1080 x 1440.
+// Name is rendered DIRECTLY onto the artwork at a per-design Y position,
+// in white with a soft dark shadow so it reads on any background.
+const CANVAS_W = 1080;
+const CANVAS_H = 1440;
 
+// `nameY` is the vertical center (as a fraction of canvas height)
+// where the name block sits on each design. Tuned to land in empty space.
 const designs = [
-  { src: 'eid01.png', img: new Image() },
-  { src: 'eid02.png', img: new Image() },
-  { src: 'eid03.png', img: new Image() }
+  { src: 'eid01.png', img: new Image(), nameY: 0.345 }, // sky between pill and Kaaba
+  { src: 'eid02.png', img: new Image(), nameY: 0.935 }, // dark grain below the triangle
+  { src: 'eid03.png', img: new Image(), nameY: 0.935 }  // dark area at very bottom
 ];
 
 let loadedCount = 0;
-designs.forEach((d, i) => {
+designs.forEach((d) => {
   d.img.crossOrigin = 'anonymous';
   d.img.onload = () => {
     loadedCount++;
@@ -420,79 +428,99 @@ designs.forEach((d, i) => {
 });
 
 // ──────────────────────────────────────────────
-// Card renderer
-// Draws the chosen design at the top (1080x1440)
-// then a 1080x200 brand strip below containing the name.
+// Card renderer — name overlays directly on the image
 // ──────────────────────────────────────────────
 function renderCard(ctx, nameAr, nameEn) {
-  // Background fill (covers any gaps while image loads)
-  ctx.fillStyle = '#024941';
+  // Reset
+  ctx.fillStyle = '#0a0a0a';
   ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
 
-  // Draw the source artwork (1080x1440) on top
+  // Background artwork
   const d = designs[selectedDesign];
   if (d.img.complete && d.img.naturalWidth > 0) {
-    ctx.drawImage(d.img, 0, 0, IMG_W, IMG_H);
+    ctx.drawImage(d.img, 0, 0, CANVAS_W, CANVAS_H);
   }
 
-  // Brand strip background
-  const stripY = IMG_H;
-  ctx.fillStyle = '#024941';
-  ctx.fillRect(0, stripY, CANVAS_W, STRIP_H);
-
-  // Subtle gold hairline at the top of the strip
-  ctx.fillStyle = '#E4BB90';
-  ctx.fillRect(0, stripY, CANVAS_W, 2);
-
-  // Decorative diamond centered on the hairline
-  ctx.save();
-  ctx.translate(CANVAS_W / 2, stripY + 1);
-  ctx.rotate(Math.PI / 4);
-  ctx.fillRect(-7, -7, 14, 14);
-  ctx.restore();
-
-  // ── Name typography ─────────────────────────
-  // Layout depends on which fields are filled:
-  //   both → AR on top (large), EN below (smaller)
-  //   AR only → AR centered, larger
-  //   EN only → EN centered, larger
-  //   neither → soft hint "من / From"
   const hasAr = !!nameAr;
   const hasEn = !!nameEn;
-  const cx = CANVAS_W / 2;
-  const stripCy = stripY + STRIP_H / 2;
+  if (!hasAr && !hasEn) return; // nothing to overlay
 
+  // Layout vars
+  const cx = CANVAS_W / 2;
+  const cy = CANVAS_H * d.nameY;
+  const FONT_SIZE = 56;           // unified size for AR + EN per spec
+  const LINE_GAP = 16;            // vertical gap between AR and EN baselines
+  const LINE_H = FONT_SIZE + LINE_GAP;
+
+  // Configure text style
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#FFFFFF';
+
+  // Pass 1: a wide soft halo for legibility on light backgrounds
+  ctx.shadowColor = 'rgba(0,0,0,0.55)';
+  ctx.shadowBlur = 28;
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 0;
+
+  drawNameLines(ctx, nameAr, nameEn, cx, cy, FONT_SIZE, LINE_H);
+
+  // Pass 2: a tighter shadow for crispness — gives the text a defined edge
+  ctx.shadowColor = 'rgba(0,0,0,0.6)';
+  ctx.shadowBlur = 10;
+  ctx.shadowOffsetY = 3;
+
+  drawNameLines(ctx, nameAr, nameEn, cx, cy, FONT_SIZE, LINE_H);
+
+  // Reset shadow
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 0;
+
+  // Decorative gold accent under the name(s) — subtle brand tie-in
+  drawGoldAccent(ctx, cx, cy, hasAr && hasEn ? LINE_H : 0, FONT_SIZE);
+}
+
+function drawNameLines(ctx, nameAr, nameEn, cx, cy, fontSize, lineH) {
+  const hasAr = !!nameAr;
+  const hasEn = !!nameEn;
+  const fontSpec = '700 ' + fontSize + 'px "ABC Favorit Arabic", system-ui, sans-serif';
+  ctx.font = fontSpec;
 
   if (hasAr && hasEn) {
-    // Two-line layout
-    ctx.fillStyle = '#FDFAF7';
-    ctx.font = '700 62px "ABC Favorit Arabic", system-ui, sans-serif';
     ctx.direction = 'rtl';
-    ctx.fillText(nameAr, cx, stripCy - 32);
-
-    ctx.fillStyle = '#E4BB90';
-    ctx.font = '500 38px "ABC Favorit Arabic", system-ui, sans-serif';
+    ctx.fillText(nameAr, cx, cy - lineH / 2);
     ctx.direction = 'ltr';
-    ctx.fillText(nameEn, cx, stripCy + 38);
+    ctx.fillText(nameEn, cx, cy + lineH / 2);
   } else if (hasAr) {
-    ctx.fillStyle = '#FDFAF7';
-    ctx.font = '700 72px "ABC Favorit Arabic", system-ui, sans-serif';
     ctx.direction = 'rtl';
-    ctx.fillText(nameAr, cx, stripCy + 6);
+    ctx.fillText(nameAr, cx, cy);
   } else if (hasEn) {
-    ctx.fillStyle = '#FDFAF7';
-    ctx.font = '700 60px "ABC Favorit Arabic", system-ui, sans-serif';
     ctx.direction = 'ltr';
-    ctx.fillText(nameEn, cx, stripCy + 6);
-  } else {
-    // Empty hint
-    ctx.fillStyle = 'rgba(228,187,144,0.55)';
-    ctx.font = '400 28px "ABC Favorit Arabic", system-ui, sans-serif';
-    ctx.direction = 'rtl';
-    ctx.fillText('— أضف اسمك هنا / Your name here —', cx, stripCy + 6);
+    ctx.fillText(nameEn, cx, cy);
   }
+}
+
+function drawGoldAccent(ctx, cx, cy, lineH, fontSize) {
+  // Thin horizontal gold line + small diamond, sitting just below the name block.
+  // Offset depends on whether one line or two lines of name were drawn.
+  const blockHalfHeight = (lineH > 0 ? lineH : 0) / 2 + fontSize * 0.55;
+  const accentY = cy + blockHalfHeight + 22;
+  const accentW = 140;
+
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,0,0,0.45)';
+  ctx.shadowBlur = 8;
+  ctx.shadowOffsetY = 2;
+
+  ctx.fillStyle = '#E4BB90';
+  ctx.fillRect(cx - accentW / 2, accentY, accentW, 2);
+
+  ctx.translate(cx, accentY + 1);
+  ctx.rotate(Math.PI / 4);
+  ctx.fillRect(-5, -5, 10, 10);
+  ctx.restore();
 }
 
 // ──────────────────────────────────────────────
@@ -571,13 +599,11 @@ function openCardInNewTab() {
 }
 
 // ──────────────────────────────────────────────
-// Re-render once fonts are ready (so the strip text uses ABC Favorit Arabic, not the fallback)
+// Re-render once fonts are ready
 // ──────────────────────────────────────────────
 if (document.fonts && document.fonts.ready) {
   document.fonts.ready.then(updatePreview);
 }
-
-// Initial paint (fallback font, will be replaced once fonts.ready resolves)
 updatePreview();
 </script>
 
