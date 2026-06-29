@@ -118,6 +118,8 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
 .gallery{display:grid;gap:clamp(10px,1.2vw,16px);flex:1;min-height:0;margin-top:4px}
 .g8{grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr}
 .g7{grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr}
+.g6{grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr}
+.tile .cap .d.extra{color:var(--gold)}
 .tile{position:relative;border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;background:#11142a;min-height:0}
 .tile img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:center top;display:block}
 .tile .cap{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:clamp(8px,1.1vh,13px) clamp(11px,1vw,15px);border-top:1px solid var(--line);background:var(--dark)}
@@ -180,6 +182,7 @@ a.inline-link:hover{color:#fff}
 @media (max-width:1000px){
   .ribbon,.docs,.sources{grid-template-columns:1fr 1fr}
   .g8,.g7{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,1fr)}
+  .g6{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr)}
 }
 
 /* ===================== MOBILE: vertical scroll ===================== */
@@ -245,6 +248,10 @@ a.inline-link:hover{color:#fff}
   .seg{height:16px}
 
   /* EID GALLERY */
+  .gallery{grid-template-columns:1fr!important;grid-template-rows:none!important;flex:none!important;gap:14px;margin-top:12px}
+  .tile{flex-direction:column}
+  .tile img{width:100%;height:auto;aspect-ratio:16/10;flex:none;min-height:0;object-fit:cover;object-position:center}
+  .tile .cap .t{font-size:15px}
   .eid-gallery{grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
   .eid-tile .cap{padding:9px 11px}
   .eid-tile .cap .t{font-size:13px}
@@ -392,10 +399,25 @@ a.inline-link:hover{color:#fff}
     </div>
   </section>
 
+  <!-- EXTRA DELIVERABLES (beyond scope) -->
+  <section class="slide dark" id="extradeliv">
+    <div class="rail"><span class="l">Beyond the Brief</span><span class="r">Out of scope · delivered anyway</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">04 · Extra deliverables we provided</span></div>
+    <h2 style="margin-bottom:4px">Delivered beyond the contract</h2>
+    <div class="gallery g6">
+      <div class="tile"><img src="report-assets/eventbanner.png" alt="Monte Carlo event banner"><div class="cap"><span class="t">Monte Carlo Banner <em>2954 × 2240 mm forum backdrop</em></span><span class="d extra">Extra</span></div></div>
+      <div class="tile"><img src="report-assets/notebook.png" alt="Notebook"><div class="cap"><span class="t">Notebook <em>3 covers + inside</em></span><span class="d extra">Extra</span></div></div>
+      <div class="tile"><img src="report-assets/empid.png" alt="Employee IDs"><div class="cap"><span class="t">Employee IDs <em>bilingual</em></span><span class="d extra">Extra</span></div></div>
+      <div class="tile"><img src="report-assets/desktop.png" alt="Desktop backgrounds"><div class="cap"><span class="t">Desktop BGs <em>10 designs</em></span><span class="d extra">Extra</span></div></div>
+      <div class="tile"><img src="report-assets/carousel.png" alt="LinkedIn carousel"><div class="cap"><span class="t">LinkedIn Carousel</span><span class="d extra">Extra</span></div></div>
+      <div class="tile"><img src="report-assets/linkedin.png" alt="LinkedIn single posts"><div class="cap"><span class="t">LinkedIn Posts <em>5 designs</em></span><span class="d extra">Extra</span></div></div>
+    </div>
+  </section>
+
   <!-- EID GREETING DESIGNS -->
   <section class="slide dark" id="extras">
     <div class="rail"><span class="l">Beyond the Brief</span><span class="r">Goodwill social campaigns</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">04 · Eid greeting designs</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">05 · Eid greeting designs</span></div>
     <h2 style="margin-bottom:4px">Eid greetings, designed in full</h2>
     <p class="body" style="max-width:108ch;margin-bottom:2px">Two bilingual campaigns produced beyond the brief: Eid al-Fitr and Eid al-Adha, six designs in all, counted within our social media output.</p>
     <div class="eid-gallery">
@@ -411,7 +433,7 @@ a.inline-link:hover{color:#fff}
   <!-- 7 · CONTENT -->
   <section class="slide blue" id="content">
     <div class="rail"><span class="l">Content &amp; Copy</span><span class="r">Bilingual production layer</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">05 · The writing behind the design</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">06 · The writing behind the design</span></div>
     <h2 style="margin-bottom:2px">Eight content documents produced</h2>
     <div class="docs">
       <div class="doc"><span class="ico"><svg><use href="#ic-outline"/></svg></span><div class="tx"><div class="t">Company Profile Outline</div><div class="s">20-page structure with section breakdowns</div></div></div>
@@ -428,7 +450,7 @@ a.inline-link:hover{color:#fff}
   <!-- 8 · METHOD -->
   <section class="slide dark" id="method">
     <div class="rail"><span class="l">How this was verified</span><span class="r">Evidence &amp; method</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">06 · Sources &amp; method</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">07 · Sources &amp; method</span></div>
     <h2 style="margin-bottom:4px">Every figure is traceable</h2>
     <div class="sources">
       <div class="src"><span class="ico"><svg><use href="#ic-clipboard"/></svg></span><div class="tx"><h3>Signed scope of work</h3><p>The 10 contracted deliverables, used as the fulfilment baseline.</p></div></div>
