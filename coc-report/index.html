@@ -127,6 +127,16 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
 .tile.icon{align-items:center;justify-content:center;background:var(--blue)}
 .tile.icon .ic{flex:1;display:flex;align-items:center;justify-content:center}
 .tile.icon svg{width:clamp(40px,5vw,68px);height:clamp(40px,5vw,68px);color:var(--gold);stroke-width:1.5}
+/* ===== EID GALLERY (portrait) ===== */
+.eid-gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(10px,1vw,18px);align-content:center;flex:1;min-height:0;margin-top:clamp(6px,1.4vh,16px)}
+.eid-tile{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#11142a}
+.eid-tile .im{width:100%;aspect-ratio:3/4;overflow:hidden}
+.eid-tile .im img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.eid-tile .cap{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:clamp(8px,1.1vh,14px) clamp(10px,.9vw,15px);border-top:1px solid var(--line);background:var(--dark)}
+.eid-tile .cap .t{font-size:clamp(12px,1vw,16px);font-weight:600;color:#fff;line-height:1.1}
+.eid-tile .cap .t em{font-style:normal;color:var(--ink-45);font-weight:300;display:block;font-size:.78em;margin-top:2px}
+.eid-tile .cap .d{font-size:clamp(8px,.8vw,11px);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);white-space:nowrap}
+@media (max-width:1000px){.eid-gallery{grid-template-columns:repeat(3,1fr)}}
 
 /* ===== CONTENT DOCS ===== */
 .docs{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(36px,5vw,80px);flex:1;min-height:0;align-content:space-between;padding-top:clamp(10px,2vh,28px)}
@@ -211,7 +221,7 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
   <!-- 2 · AT A GLANCE -->
   <section class="slide blue" id="glance">
     <div class="rail"><span class="l">Executive Summary</span><span class="r">Riyadh Re × TMD</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">01 — At a glance</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">01 · At a glance</span></div>
     <h2 style="max-width:24ch;margin-bottom:6px">Every contracted item delivered, much of it exceeded.</h2>
     <div class="metrics">
       <div class="metric"><div class="n">10/10</div><div class="d"><b>Contracted deliverables</b> completed in full <span>· 100% of the signed scope</span></div></div>
@@ -219,14 +229,14 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
       <div class="metric"><div class="n">25</div><div class="d"><b>Documented revision cycles</b> <span>· across the contracted scope</span></div></div>
       <div class="metric"><div class="n">7</div><div class="d"><b>Additional design workstreams</b> <span>· beyond the original brief</span></div></div>
       <div class="metric"><div class="n">8</div><div class="d"><b>Bilingual content documents</b> <span>· Arabic + English copy</span></div></div>
-      <div class="metric"><div class="n">+120%</div><div class="d"><b>Social media templates</b> over contract <span>· 5 contracted, 11 delivered</span></div></div>
+      <div class="metric"><div class="n">+240%</div><div class="d"><b>Social media designs</b> over contract <span>· 5 contracted, 17 delivered (incl. 6 Eid)</span></div></div>
     </div>
   </section>
 
   <!-- 3 · CONTRACTED SCOPE (1/2) -->
   <section class="slide dark" id="scope1">
     <div class="rail"><span class="l">The Contract</span><span class="r">Source · signed scope of work</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">02 — Contracted scope, fulfilled · 1 of 2</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">02 · Contracted scope, fulfilled · 1 of 2</span></div>
     <h2 style="margin-bottom:6px">The 10 contracted deliverables</h2>
     <div class="fill">
     <table class="tbl">
@@ -245,14 +255,14 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
   <!-- 4 · CONTRACTED SCOPE (2/2) -->
   <section class="slide dark" id="scope2">
     <div class="rail"><span class="l">The Contract</span><span class="r">Source · signed scope of work</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">02 — Contracted scope, fulfilled · 2 of 2</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">02 · Contracted scope, fulfilled · 2 of 2</span></div>
     <h2 style="margin-bottom:6px">The 10 contracted deliverables</h2>
     <div class="fill">
     <table class="tbl">
       <thead><tr><th>Contracted item</th><th>Delivered</th><th>Status</th><th class="rcol">Rounds</th></tr></thead>
       <tbody>
         <tr><td class="name">Master PowerPoint <span>(10 slides)</span></td><td class="deliv">English master template, V4 · Excel / table / icon support <span class="over">10 → 60+</span></td><td><span class="stat-pill"><svg><use href="#ic-check"/></svg>Delivered</span></td><td class="rounds">4</td></tr>
-        <tr><td class="name">Social Media Kit <span>(5 templates)</span></td><td class="deliv">11 post templates · announcements, quotes, statistics, events (+ Option B) <span class="over">5 → 11</span></td><td><span class="stat-pill"><svg><use href="#ic-check"/></svg>Delivered</span></td><td class="rounds">2</td></tr>
+        <tr><td class="name">Social Media Kit <span>(5 templates)</span></td><td class="deliv">11 brand-kit templates (announcements, quotes, statistics, events) + 6 Eid greeting designs <span class="over">5 → 17</span></td><td><span class="stat-pill"><svg><use href="#ic-check"/></svg>Delivered</span></td><td class="rounds">2</td></tr>
         <tr><td class="name">Company Profile <span>(up to 20 pp.)</span></td><td class="deliv">English profile (16 pp.) + 20-page outline + content source; Arabic on EN approval</td><td><span class="stat-pill"><svg><use href="#ic-check"/></svg>Delivered</span></td><td class="rounds">2</td></tr>
         <tr><td class="name">Roll-up Banners</td><td class="deliv">85 × 200 cm · 4 layout options · print PDF + source PSD · corporate + conference copy</td><td><span class="stat-pill"><svg><use href="#ic-check"/></svg>Delivered</span></td><td class="rounds">2</td></tr>
         <tr><td class="name">3 Gift Applications</td><td class="deliv">5 branded corporate-gift mockups <span class="over">3 → 5</span></td><td><span class="stat-pill"><svg><use href="#ic-check"/></svg>Delivered</span></td><td class="rounds">1</td></tr>
@@ -265,7 +275,7 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
   <!-- 5 · EDITING ROUNDS (1/2) -->
   <section class="slide dark" id="rounds1">
     <div class="rail"><span class="l">Revision Rounds</span><span class="r">Source · correspondence log</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">03 — Editing rounds per deliverable · 1 of 2</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">03 · Editing rounds per deliverable · 1 of 2</span></div>
     <h2 style="margin-bottom:4px">The work behind each sign-off</h2>
     <p class="body" style="max-width:110ch;margin-bottom:2px">Each filled bar is one documented feedback-and-revision cycle, reconstructed from the email log.</p>
     <div class="rounds">
@@ -280,7 +290,7 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
   <!-- 6 · EDITING ROUNDS (2/2) -->
   <section class="slide dark" id="rounds2">
     <div class="rail"><span class="l">Revision Rounds</span><span class="r">Source · correspondence log</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">03 — Editing rounds per deliverable · 2 of 2</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">03 · Editing rounds per deliverable · 2 of 2</span></div>
     <h2 style="margin-bottom:4px">The work behind each sign-off</h2>
     <p class="body" style="max-width:110ch;margin-bottom:2px">Even single-round items passed a full review-and-finalise cycle before delivery.</p>
     <div class="rounds">
@@ -295,7 +305,7 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
   <!-- 5 · DELIVERABLES GALLERY -->
   <section class="slide dark" id="gallery">
     <div class="rail"><span class="l">The Work, Delivered</span><span class="r">Contracted scope · mockups</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">04 — Contracted deliverables, in the flesh</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">04 · Contracted deliverables, in the flesh</span></div>
     <h2 style="margin-bottom:4px">What it actually looks like</h2>
     <div class="gallery g8">
       <div class="tile"><img src="report-assets/letterhead.png" alt="Letterhead"><div class="cap"><span class="t">Letterhead</span><span class="d">Delivered</span></div></div>
@@ -309,26 +319,26 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
     </div>
   </section>
 
-  <!-- 6 · EXTRAS -->
+  <!-- 6 · EID GREETING DESIGNS -->
   <section class="slide dark" id="extras">
-    <div class="rail"><span class="l">Beyond the Contract</span><span class="r">Not in the original scope</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">05 — Seven workstreams beyond scope</span></div>
-    <h2 style="margin-bottom:4px">Delivered on top of the brief</h2>
-    <div class="gallery g7">
-      <div class="tile"><img src="report-assets/notebook.png" alt="Notebook"><div class="cap"><span class="t">Notebook <em>3 covers + inside</em></span><span class="d">Delivered</span></div></div>
-      <div class="tile"><img src="report-assets/empid.png" alt="Employee IDs"><div class="cap"><span class="t">Employee IDs <em>bilingual</em></span><span class="d">Delivered</span></div></div>
-      <div class="tile"><img src="report-assets/desktop.png" alt="Desktop backgrounds"><div class="cap"><span class="t">Desktop BGs <em>10 designs</em></span><span class="d">Delivered</span></div></div>
-      <div class="tile"><img src="report-assets/carousel.png" alt="LinkedIn carousel"><div class="cap"><span class="t">LinkedIn Carousel</span><span class="d">Delivered</span></div></div>
-      <div class="tile"><img src="report-assets/linkedin.png" alt="LinkedIn single posts"><div class="cap"><span class="t">LinkedIn Posts <em>5 designs</em></span><span class="d">Delivered</span></div></div>
-      <div class="tile"><img src="report-assets/eventbanner.png" alt="Event banner"><div class="cap"><span class="t">Event Banners <em>+ Monte Carlo</em></span><span class="d">Delivered</span></div></div>
-      <div class="tile icon" style="grid-column:span 2"><div class="ic"><svg><use href="#ic-sparkle"/></svg></div><div class="cap"><span class="t">Eid Greetings <em>4 bilingual Instagram designs</em></span><span class="d">Delivered</span></div></div>
+    <div class="rail"><span class="l">Beyond the Brief</span><span class="r">Goodwill social campaigns</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">05 · Eid greeting designs</span></div>
+    <h2 style="margin-bottom:4px">Eid greetings, designed in full</h2>
+    <p class="body" style="max-width:108ch;margin-bottom:2px">Two bilingual campaigns produced beyond the brief: Eid al-Fitr and Eid al-Adha, six designs in all, counted within our social media output.</p>
+    <div class="eid-gallery">
+      <figure class="eid-tile"><div class="im"><img src="report-assets/eid-fitr-1.png" alt="Eid al-Fitr greeting, classic"></div><figcaption class="cap"><span class="t">Eid al-Fitr <em>Classic</em></span><span class="d">Delivered</span></figcaption></figure>
+      <figure class="eid-tile"><div class="im"><img src="report-assets/eid-fitr-2.png" alt="Eid al-Fitr greeting, night"></div><figcaption class="cap"><span class="t">Eid al-Fitr <em>Night</em></span><span class="d">Delivered</span></figcaption></figure>
+      <figure class="eid-tile"><div class="im"><img src="report-assets/eid-fitr-3.png" alt="Eid al-Fitr greeting, teal"></div><figcaption class="cap"><span class="t">Eid al-Fitr <em>Teal</em></span><span class="d">Delivered</span></figcaption></figure>
+      <figure class="eid-tile"><div class="im"><img src="report-assets/eid-adha-1.png" alt="Eid al-Adha greeting, Kaaba"></div><figcaption class="cap"><span class="t">Eid al-Adha <em>Kaaba</em></span><span class="d">Delivered</span></figcaption></figure>
+      <figure class="eid-tile"><div class="im"><img src="report-assets/eid-adha-2.png" alt="Eid al-Adha greeting, minimal"></div><figcaption class="cap"><span class="t">Eid al-Adha <em>Minimal</em></span><span class="d">Delivered</span></figcaption></figure>
+      <figure class="eid-tile"><div class="im"><img src="report-assets/eid-adha-3.png" alt="Eid al-Adha greeting, Mecca"></div><figcaption class="cap"><span class="t">Eid al-Adha <em>Mecca</em></span><span class="d">Delivered</span></figcaption></figure>
     </div>
   </section>
 
   <!-- 7 · CONTENT -->
   <section class="slide blue" id="content">
     <div class="rail"><span class="l">Content &amp; Copy</span><span class="r">Bilingual production layer</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">06 — The writing behind the design</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">06 · The writing behind the design</span></div>
     <h2 style="margin-bottom:2px">Eight content documents produced</h2>
     <div class="docs">
       <div class="doc"><span class="ico"><svg><use href="#ic-outline"/></svg></span><div class="tx"><div class="t">Company Profile Outline</div><div class="s">20-page structure with section breakdowns</div></div></div>
@@ -345,7 +355,7 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
   <!-- 8 · METHOD -->
   <section class="slide dark" id="method">
     <div class="rail"><span class="l">How this was verified</span><span class="r">Evidence &amp; method</span></div>
-    <div class="eyebrow"><span class="bar"></span><span class="tx">07 — Sources &amp; method</span></div>
+    <div class="eyebrow"><span class="bar"></span><span class="tx">07 · Sources &amp; method</span></div>
     <h2 style="margin-bottom:4px">Every figure is traceable</h2>
     <div class="sources">
       <div class="src"><span class="ico"><svg><use href="#ic-clipboard"/></svg></span><div class="tx"><h3>Signed scope of work</h3><p>The 10 contracted deliverables, used as the fulfilment baseline.</p></div></div>
@@ -364,7 +374,7 @@ h2{font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:var(--fs-h2)
     <div class="ribbon">
       <div class="cell"><div class="v">100%</div><div class="k">Contracted scope delivered</div></div>
       <div class="cell"><div class="v">7×</div><div class="k">Personalised business-card sets</div></div>
-      <div class="cell"><div class="v">15</div><div class="k">Deliverable mockups shown</div></div>
+      <div class="cell"><div class="v">14</div><div class="k">Deliverable mockups shown</div></div>
       <div class="cell"><div class="v">TMD</div><div class="k">Brand &amp; Communication</div></div>
     </div>
   </section>
